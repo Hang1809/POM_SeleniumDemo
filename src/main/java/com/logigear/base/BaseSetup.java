@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class BaseSetup {
     private WebDriver driver;
 
-    static String appURL ="http://www.railwayb2.somee.com/Page/HomePage.cshtml";
+    static String appURL ="https://www.railwayb2.somee.com/Page/HomePage.cshtml";
     static String driverPath = "resources\\drivers\\";
 
     public WebDriver getDriver() {

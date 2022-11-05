@@ -6,11 +6,10 @@ import org.openqa.selenium.WebElement;
 
 public class LoginPage {
     private WebDriver driver;
-    private By emailInput = By.id("EmailInputEmail");
-    private By passwordInput= By.id("PasswordInputPassword");
-    private By logninBtn = By.id("LogInButton");
-    private By errorMsgText = By.id("logInError");
-
+    private By emailInput = By.id("username");
+    private By passwordInput= By.id("password");
+    private By loginBtn = By.xpath("//input[@type='submit' and @value='Login']");
+    private By errorMsgText = By.className("message error LoginForm");
     public LoginPage(WebDriver driver){
         this.driver= driver;
     }
@@ -44,7 +43,7 @@ public class LoginPage {
             passwordTextBox.sendKeys(password);
     }
     public void clickLogIn(){
-        WebElement login = driver.findElement(logninBtn);
+        WebElement login = driver.findElement(loginBtn);
         if(login.isDisplayed()){
             login.click();
         }
