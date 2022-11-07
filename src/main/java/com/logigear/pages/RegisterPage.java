@@ -6,12 +6,13 @@ import org.openqa.selenium.WebElement;
 
 public class RegisterPage {
     private WebDriver driver;
-    private By emailInput = By.id("EmailInputEmail");
-    private By passwordInput = By.id("PasswordInputPassword");
-    private By confirmPasswordInput = By.id("ConfirmPassword");
-    private By PIDNoInput = By.id("PIDNumber");
-    private By registerBtn = By.id("RegisterButton");
-    private By errorRegisterMsgText = By.id("RegisterError");
+    private By emailInput = By.id("email");
+    private By passwordInput = By.id("password");
+    private By confirmPasswordInput = By.id("confirmPassword");
+    private By PIDNoInput = By.id("pid");
+    private By registerBtn = By.xpath("//input[@type='submit' and @value='Register']");
+    private By errorRegisterMsgText = By.className("message error");
+
 
     public RegisterPage(WebDriver driver){
         this.driver= driver;
@@ -24,11 +25,11 @@ public class RegisterPage {
         String expectedTitle = "Create account";
         return getRegisterPageTitle().equals(expectedTitle);
     }
-    public void register(String username, String password,String confirmPassword, String PIDNumber) throws Exception{
-        enterEmail(username);
+    public void register(String email, String password,String confirmPassword, String pid) throws Exception{
+        enterEmail(email);
         enterPassword(password);
         enterConfirmPassword(confirmPassword);
-        enterPID(PIDNumber);
+        enterPID(pid);
         clickRegister();
     }
 
