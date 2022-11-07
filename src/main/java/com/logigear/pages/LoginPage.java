@@ -29,15 +29,17 @@ public class LoginPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(_lblLoginErrorMsg);
     }
 
-    public String login (String username, String password){
+    public void login (String username, String password){
         getTxtUsername().sendKeys(username);
         getTxtPassword().sendKeys(password);
         getBtnLogin().click();
-        return new String();
     }
 
     @Override
     public String getWelcomeMessage() {
         return super.getWelcomeMessage();
+    }
+    public String getLblLoginErrorMsgTxt(){
+        return this.getLblLoginErrorMsg().getText();
     }
 }

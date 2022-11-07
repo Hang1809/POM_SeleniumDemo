@@ -1,72 +1,66 @@
 package com.logigear.pages;
 
+import com.logigear.common.common.Utilities;
+import com.logigear.common.constant.Constant;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class RegisterPage {
-    private WebDriver driver;
-    private By emailInput = By.id("email");
-    private By passwordInput = By.id("password");
-    private By confirmPasswordInput = By.id("confirmPassword");
-    private By PIDNoInput = By.id("pid");
-    private By registerBtn = By.xpath("//input[@type='submit' and @value='Register']");
-    private By errorRegisterMsgText = By.className("message error");
+    //Locators
+    private final By _txtUsername = By.xpath("//input[@id='email']");
+    private final By _txtPassword = By.xpath("//input[@id='password']");
+    private final By _txtConfirmPass = By.xpath("//input[@id='confirmPassword']");
+    private final By _txtPID = By.xpath("//input[@id='pid']");
+    private final By _btnRegister = By.xpath("//input[@type='submit' and @value='Register']");
+    private final By _successRegisterMsg = By.xpath("//p");
+    private final By _lblRegisterErrorMsg = By.xpath("//p[@class='message error']");
+
+    private final By _link = By.xpath("//center/a");
 
 
-    public RegisterPage(WebDriver driver){
-        this.driver= driver;
+
+    //Elements
+    public WebElement getTxtUsername(){
+        return Constant.WEBDRIVER.findElement(_txtUsername);
     }
-    public String getRegisterPageTitle(){
-        String pageTitle = driver.getTitle();
-        return pageTitle;
+    public WebElement getTxtPassword(){
+        return Constant.WEBDRIVER.findElement(_txtPassword);
     }
-    public boolean verifyRegisterPageTitle(){
-        String expectedTitle = "Create account";
-        return getRegisterPageTitle().equals(expectedTitle);
+    public WebElement getTxtConfirmPass(){
+        return Constant.WEBDRIVER.findElement(_txtConfirmPass);
     }
-    public void register(String email, String password,String confirmPassword, String pid) throws Exception{
-        enterEmail(email);
-        enterPassword(password);
-        enterConfirmPassword(confirmPassword);
-        enterPID(pid);
-        clickRegister();
+    public WebElement getTxtPID(){
+        return Constant.WEBDRIVER.findElement(_txtPID);
+    }
+    public WebElement getBtnRegister(){
+        return Constant.WEBDRIVER.findElement(_btnRegister);
+    }
+    public WebElement getLblRegisterErrorMsg(){
+        return Constant.WEBDRIVER.findElement(_lblRegisterErrorMsg);
+    }
+    public WebElement getSuccessRegisterMsg(){
+        return Constant.WEBDRIVER.findElement(_successRegisterMsg);
     }
 
-    public void enterEmail(String email){
-        WebElement emailTextBox = driver.findElement(emailInput);
-        if(emailTextBox.isDisplayed())
-            emailTextBox.sendKeys(email);
+    public WebElement getLink(){
+        return Constant.WEBDRIVER.findElement(_link);
     }
-    public void enterPassword(String password){
-        WebElement passwordTextBox = driver.findElement(passwordInput);
-        if(passwordTextBox.isDisplayed())
-            passwordTextBox.sendKeys(password);
+    public void register (String username, String password, String confirmPassword, String pID){
+        getTxtUsername().sendKeys(Constant.REGISTERUSERNAME);
+        getTxtPassword().sendKeys(Constant.PASSWORD);
+        getTxtConfirmPass().sendKeys(Constant.PASSWORD);
+        getTxtPID().sendKeys(Constant.PID);
+        Utilities.scrollToElement(getLink());
+        getBtnRegister().click();
+
     }
 
-    public void enterConfirmPassword(String confirmPassword){
-        WebElement confirmpasswordTextBox = driver.findElement(confirmPasswordInput);
-        if(confirmpasswordTextBox.isDisplayed())
-            confirmpasswordTextBox.sendKeys(confirmPassword);
-    }
-    public void enterPID(String PIDNumber ){
-        WebElement pIDTextBox = driver.findElement(PIDNoInput);
-        if(pIDTextBox.isDisplayed())
-            pIDTextBox.sendKeys(PIDNumber);
+    public String getSuccessRegisterMsgTxt(){
+        return this.getSuccessRegisterMsg().getText();
     }
 
-    public void clickRegister(){
-        WebElement register = driver.findElement(registerBtn);
-        if(register.isDisplayed()){
-            register.click();
-        }
-    }
-    public String getErrorMessage(){
-        String strErrorMsg = null;
-        WebElement errorMsg = driver.findElement(errorRegisterMsgText);
-        if(errorMsg.isDisplayed() && errorMsg.isEnabled())
-            strErrorMsg =errorMsg.getText();
-        return strErrorMsg;
+    public String getLblRegisterErrorMsgTxt(){
+        return this.getLblRegisterErrorMsg().getText();
     }
 
 }
