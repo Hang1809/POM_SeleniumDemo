@@ -1,9 +1,13 @@
 package com.logigear.pages;
 
 import com.logigear.common.common.Utilities;
+import com.logigear.common.constant.CSVUtils;
 import com.logigear.common.constant.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RegisterPage extends GeneralPage {
     //Locators
@@ -63,7 +67,24 @@ public class RegisterPage extends GeneralPage {
         return this.getLblRegisterErrorMsg().getText();
     }
     public String getLblInvalidErrorMsgTxt(){
+
         return this.getLblInvalidErrorMsg().getText();
     }
+
+    //Đọc file CSV - invalid Password
+//    public static String path = "data/invalidpassword.csv";
+//
+//
+//    public List<String> getInvalidPass(){
+//         List<String> invalidPass = new ArrayList<>();
+//        List<String> records = CSVUtils.readData(path);
+//        for (String record : records){
+//            if (!record.trim().isEmpty())
+//                invalidPass.add();
+//        }
+//        return invalidPass;
+//
+//    }
+
 
 }

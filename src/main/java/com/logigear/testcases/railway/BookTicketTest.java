@@ -57,11 +57,6 @@ public class BookTicketTest {
 
         Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
     }
-    @Test
-    public void TC13(){
-        System.out.println("");
-
-    }
 
 
 }

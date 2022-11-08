@@ -12,6 +12,7 @@ public class GeneralPage {
     private final By tabLogout = By.xpath("//div[@id='menu']//a[@href='/Account/Logout']");
     private final By lblWelcomeMessage = By.xpath("//div[@class='account']/strong");
     private final By tabBookTicket = By.xpath("//div[@id='menu']//a[@href='/Page/BookTicketPage.cshtml']");
+    private final By tabMyTicket = By.xpath("//div[@id='menu']//a[@href='/Page/ManageTicket.cshtml']");
 
     private final By _link = By.xpath("//center/a[contains(text(),'Somee.com')]");
 
@@ -28,6 +29,7 @@ public class GeneralPage {
         return Constant.WEBDRIVER.findElement(lblWelcomeMessage);
     }
     protected WebElement getTabBookTicket(){return Constant.WEBDRIVER.findElement(tabBookTicket);}
+    protected WebElement getTabMyTicket(){return Constant.WEBDRIVER.findElement(tabMyTicket);}
     protected WebElement getLink(){
         return Constant.WEBDRIVER.findElement(_link);
     }
@@ -49,5 +51,13 @@ public class GeneralPage {
     public BookTicketPage gotoBookTicketPage(){
         this.getTabBookTicket().click();
         return new BookTicketPage();
+    }
+    public LogoutPage logoutPage(){
+        this.getTabLogout().click();
+        return new LogoutPage();
+    }
+    public MyTicketPage gotoMyTicketPage(){
+        this.getTabMyTicket().click();
+        return new MyTicketPage();
     }
 }

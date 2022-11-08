@@ -50,14 +50,14 @@ public class BookTicketPage extends GeneralPage {
     public void bookTicket() {
         Utilities.scrollToElement(getLink());
         Select departDate = new Select(getSelectedDate());
-        departDate.selectByValue("4");
         Select departFrom = new Select(getSelectedDepart());
-        departFrom.selectByValue("4");
         Select arrive = new Select(getSelectedArrive());
-        arrive.selectByValue("3");
         Select ticket = new Select(getSelectedTicketAmount());
-        ticket.selectByValue("1");
         Select seat = new Select(getSelectedSeatType());
+        departDate.selectByValue("4");
+        departFrom.selectByValue("4");
+        arrive.selectByValue("3");
+        ticket.selectByValue("1");
         seat.selectByValue("1");
         getBtnBookTicket().click();
     }
@@ -65,14 +65,14 @@ public class BookTicketPage extends GeneralPage {
     public void book10Ticket() {
         Utilities.scrollToElement(getLink());
         Select departDate = new Select(getSelectedDate());
-        departDate.selectByValue("4");
         Select departFrom = new Select(getSelectedDepart());
-        departFrom.selectByValue("4");
         Select arrive = new Select(getSelectedArrive());
-        arrive.selectByValue("3");
         Select ticket = new Select(getSelectedTicketAmount());
-        ticket.selectByValue("10");
         Select seat = new Select(getSelectedSeatType());
+        departDate.selectByValue("4");
+        departFrom.selectByValue("4");
+        arrive.selectByValue("3");
+        ticket.selectByValue("10");
         seat.selectByValue("1");
         getBtnBookTicket().click();
     }
