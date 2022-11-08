@@ -22,6 +22,7 @@ public class LoginPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(_txtPassword);
     }
     public WebElement getBtnLogin(){
+
         return Constant.WEBDRIVER.findElement(_btnLogin);
     }
 
