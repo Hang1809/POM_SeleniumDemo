@@ -1,7 +1,7 @@
 package com.logigear.pages;
 
-import com.logigear.common.common.Utilities;
-import com.logigear.common.constant.Constant;
+import com.logigear.common.Utilities;
+import com.logigear.common.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -12,7 +12,7 @@ public class MyTicketPage extends GeneralPage {
     private By filterDptDate = By.xpath("//input[@name='FilterDpDate']");
     private By filterStatus = By.xpath("//select[@name='FilterStatus']");
     private By btnFilter = By.xpath("//input[@type='submit' and @value='Apply Filter']");
-    private By successFilter = By.xpath("//");
+    private By successFilterMsg = By.xpath("//");
 
     public WebElement getFilterDptStation(){
         return Constant.WEBDRIVER.findElement(filterDptStation);
@@ -29,8 +29,8 @@ public class MyTicketPage extends GeneralPage {
     public WebElement getBtnFilter(){
         return Constant.WEBDRIVER.findElement(btnFilter);
     }
-    public String getSuccessFilter(){
-        return Constant.WEBDRIVER.findElement(successFilter).getText();
+    public String getSuccessFilterMsg(){
+        return Constant.WEBDRIVER.findElement(successFilterMsg).getText();
     }
 
     public void filterTicket(){

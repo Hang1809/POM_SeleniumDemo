@@ -1,53 +1,58 @@
 package com.logigear.pages;
 
-import com.logigear.common.common.Utilities;
-import com.logigear.common.constant.CSVUtils;
-import com.logigear.common.constant.Constant;
+import com.logigear.common.Utilities;
+import com.logigear.common.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class RegisterPage extends GeneralPage {
     //Locators
-    private final By _txtUsername = By.xpath("//input[@id='email']");
-    private final By _txtPassword = By.xpath("//input[@id='password']");
-    private final By _txtConfirmPass = By.xpath("//input[@id='confirmPassword']");
-    private final By _txtPID = By.xpath("//input[@id='pid']");
-    private final By _btnRegister = By.xpath("//input[@type='submit' and @value='Register']");
-    private final By _successRegisterMsg = By.xpath("//div[@id='content']/p[contains(text(),'here')]");
-    private final By _lblRegisterErrorMsg = By.xpath("//p[@class='message error']");
-    private final By _blInvalidErrorMsg = By.xpath("//label[@class='validation-error']");
-
+    private final By txtUsername = By.xpath("//input[@id='email']");
+    private final By txtPassword = By.xpath("//input[@id='password']");
+    private final By txtConfirmPass = By.xpath("//input[@id='confirmPassword']");
+    private final By txtPID = By.xpath("//input[@id='pid']");
+    private final By btnRegister = By.xpath("//input[@type='submit' and @value='Register']");
+    private final By successRegisterMsg = By.xpath("//div[@id='content']/p[contains(text(),'here')]");
+    private final By lblRegisterErrorMsg = By.xpath("//p[@class='message error']");
+    private final By blInvalidErrorMsg = By.xpath("//label[@class='validation-error']");
 
 
     //Elements
-    public WebElement getTxtUsername(){
-        return Constant.WEBDRIVER.findElement(_txtUsername);
+    public WebElement getTxtUsername() {
+        return Constant.WEBDRIVER.findElement(txtUsername);
     }
-    public WebElement getTxtPassword(){
-        return Constant.WEBDRIVER.findElement(_txtPassword);
+
+    public WebElement getTxtPassword() {
+        return Constant.WEBDRIVER.findElement(txtPassword);
     }
-    public WebElement getTxtConfirmPass(){
-        return Constant.WEBDRIVER.findElement(_txtConfirmPass);
+
+    public WebElement getTxtConfirmPass() {
+        return Constant.WEBDRIVER.findElement(txtConfirmPass);
     }
-    public WebElement getTxtPID(){
-        return Constant.WEBDRIVER.findElement(_txtPID);
+
+    public WebElement getTxtPID() {
+        return Constant.WEBDRIVER.findElement(txtPID);
     }
-    public WebElement getBtnRegister(){
-        return Constant.WEBDRIVER.findElement(_btnRegister);
+
+    public WebElement getBtnRegister() {
+        return Constant.WEBDRIVER.findElement(btnRegister);
     }
-    public WebElement getLblRegisterErrorMsg(){
-        return Constant.WEBDRIVER.findElement(_lblRegisterErrorMsg);
+
+    public WebElement getLblRegisterErrorMsg() {
+        return Constant.WEBDRIVER.findElement(lblRegisterErrorMsg);
     }
-    public WebElement getLblInvalidErrorMsg(){return Constant.WEBDRIVER.findElement(_blInvalidErrorMsg);}
-    public WebElement getSuccessRegisterMsg(){
-        return Constant.WEBDRIVER.findElement(_successRegisterMsg);
+
+    public WebElement getLblInvalidErrorMsg() {
+        return Constant.WEBDRIVER.findElement(blInvalidErrorMsg);
+    }
+
+    public WebElement getSuccessRegisterMsg() {
+        return Constant.WEBDRIVER.findElement(successRegisterMsg);
     }
 
 
-    public void register (String username, String password, String confirmPassword, String pID){
+    public void register(String username, String password, String confirmPassword, String pID) {
         getTxtUsername().sendKeys(username);
         getTxtPassword().sendKeys(password);
         getTxtConfirmPass().sendKeys(confirmPassword);
@@ -57,34 +62,16 @@ public class RegisterPage extends GeneralPage {
 
     }
 
-    public String getSuccessRegisterMsgTxt(){
-         return this.getSuccessRegisterMsg().getText();
-       // return  Constant.WEBDRIVER.findElement(_successRegisterMsg).getText();
+    public String getSuccessRegisterMsgTxt() {
+        return this.getSuccessRegisterMsg().getText();
     }
 
-    public String getLblRegisterErrorMsgTxt(){
-
+    public String getLblRegisterErrorMsgTxt() {
         return this.getLblRegisterErrorMsg().getText();
     }
-    public String getLblInvalidErrorMsgTxt(){
 
+    public String getLblInvalidErrorMsgTxt() {
         return this.getLblInvalidErrorMsg().getText();
     }
-
-    //Đọc file CSV - invalid Password
-//    public static String path = "data/invalidpassword.csv";
-//
-//
-//    public List<String> getInvalidPass(){
-//         List<String> invalidPass = new ArrayList<>();
-//        List<String> records = CSVUtils.readData(path);
-//        for (String record : records){
-//            if (!record.trim().isEmpty())
-//                invalidPass.add();
-//        }
-//        return invalidPass;
-//
-//    }
-
 
 }

@@ -1,6 +1,6 @@
 package com.logigear.pages;
 
-import com.logigear.common.constant.Constant;
+import com.logigear.common.Constant;
 
 public class HomePage extends GeneralPage {
     public HomePage open(){

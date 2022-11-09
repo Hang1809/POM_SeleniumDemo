@@ -1,6 +1,6 @@
 package com.logigear.pages;
 
-import com.logigear.common.constant.Constant;
+import com.logigear.common.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -14,7 +14,7 @@ public class GeneralPage {
     private final By tabBookTicket = By.xpath("//div[@id='menu']//a[@href='/Page/BookTicketPage.cshtml']");
     private final By tabMyTicket = By.xpath("//div[@id='menu']//a[@href='/Page/ManageTicket.cshtml']");
 
-    private final By _link = By.xpath("//center/a[contains(text(),'Somee.com')]");
+    private final By link = By.xpath("//center/a[contains(text(),'Somee.com')]");
 
 
     //Elements
@@ -31,33 +31,28 @@ public class GeneralPage {
     protected WebElement getTabBookTicket(){return Constant.WEBDRIVER.findElement(tabBookTicket);}
     protected WebElement getTabMyTicket(){return Constant.WEBDRIVER.findElement(tabMyTicket);}
     protected WebElement getLink(){
-        return Constant.WEBDRIVER.findElement(_link);
+        return Constant.WEBDRIVER.findElement(link);
     }
 
     //Methods
     public String getWelcomeMessage(){
         return this.getLblWelcomeMessage().getText();
     }
-    public LoginPage gotoLoginPage(){
+    public void gotoLoginPage(){
         this.getTabLogin().click();
-        return new LoginPage();
     }
 
-    public RegisterPage gotoRegisterPage(){
+    public void gotoRegisterPage(){
         this.getTabRegister().click();
-        return new RegisterPage();
     }
 
-    public BookTicketPage gotoBookTicketPage(){
+    public void gotoBookTicketPage(){
         this.getTabBookTicket().click();
-        return new BookTicketPage();
     }
-    public LogoutPage logoutPage(){
+    public void logoutPage(){
         this.getTabLogout().click();
-        return new LogoutPage();
     }
-    public MyTicketPage gotoMyTicketPage(){
+    public void gotoMyTicketPage(){
         this.getTabMyTicket().click();
-        return new MyTicketPage();
     }
 }

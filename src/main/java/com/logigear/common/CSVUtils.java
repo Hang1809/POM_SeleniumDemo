@@ -1,4 +1,4 @@
-package com.logigear.common.constant;
+package com.logigear.common;
 
 import java.io.IOException;
 import java.nio.file.Files;

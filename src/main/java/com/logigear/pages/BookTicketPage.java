@@ -1,19 +1,19 @@
 package com.logigear.pages;
 
-import com.logigear.common.common.Utilities;
-import com.logigear.common.constant.Constant;
+import com.logigear.common.Utilities;
+import com.logigear.common.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class BookTicketPage extends GeneralPage {
     private By selectedDate = By.xpath("//select[@name='Date']");
-    private By departFrom = By.xpath("//select[@name='DepartStation']");
+    private By dptFrom = By.xpath("//select[@name='DepartStation']");
     private By arriveStation = By.xpath("//select[@name='ArriveStation']");
     private By seatType = By.xpath("//select[@name='SeatType']");
     private By ticketAmount = By.xpath("//select[@name='TicketAmount']");
     private By btnBookTicket = By.xpath("//input[@type='submit' and @value='Book ticket']");
-    private By successBooking = By.xpath("//h1[contains(text(),'Booked Successfully')]");
+    private By successBookingMsg = By.xpath("//h1[contains(text(),'Booked Successfully')]");
     private By errorBookingMsg = By.xpath("//p[@class='message error']");
 
     public WebElement getSelectedDate() {
@@ -21,7 +21,7 @@ public class BookTicketPage extends GeneralPage {
     }
 
     public WebElement getSelectedDepart() {
-        return Constant.WEBDRIVER.findElement(departFrom);
+        return Constant.WEBDRIVER.findElement(dptFrom);
     }
 
     public WebElement getSelectedArrive() {
@@ -41,19 +41,22 @@ public class BookTicketPage extends GeneralPage {
     }
 
     public String getSuccessBookingMsg() {
-        return Constant.WEBDRIVER.findElement(successBooking).getText();
+        return Constant.WEBDRIVER.findElement(successBookingMsg).getText();
     }
-    public String getErrorBookingMsg(){
+
+    public String getErrorBookingMsg() {
         return Constant.WEBDRIVER.findElement(errorBookingMsg).getText();
     }
 
+
+
     public void bookTicket() {
-        Utilities.scrollToElement(getLink());
         Select departDate = new Select(getSelectedDate());
         Select departFrom = new Select(getSelectedDepart());
         Select arrive = new Select(getSelectedArrive());
         Select ticket = new Select(getSelectedTicketAmount());
         Select seat = new Select(getSelectedSeatType());
+        Utilities.scrollToElement(getLink());
         departDate.selectByValue("4");
         departFrom.selectByValue("4");
         arrive.selectByValue("3");
