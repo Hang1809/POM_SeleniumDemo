@@ -10,7 +10,7 @@ public class BaseTest {
     @BeforeMethod
     public void beforeMethod() {
         System.out.println("Pre-condition: Created Account");
-        System.setProperty("webdriver.chrome.driver", Utilities.getProjectPath()+ "\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", Utilities.getProjectPath()+ "\\executables\\chromedriver.exe");
         Constant.WEBDRIVER = new ChromeDriver();
         Constant.WEBDRIVER.manage().window().maximize();
     }

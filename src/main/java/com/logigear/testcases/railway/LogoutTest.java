@@ -1,13 +1,9 @@
 package com.logigear.testcases.railway;
-
 import com.logigear.common.Constant;
-import com.logigear.pages.HomePage;
-import com.logigear.pages.LoginPage;
-import com.logigear.pages.LogoutPage;
-import org.openqa.selenium.chrome.ChromeDriver;
+import com.logigear.pagesObjects.HomePage;
+import com.logigear.pagesObjects.LoginPage;
+import com.logigear.pagesObjects.LogoutPage;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 

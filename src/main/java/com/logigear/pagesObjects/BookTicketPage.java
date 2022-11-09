@@ -1,4 +1,4 @@
-package com.logigear.pages;
+package com.logigear.pagesObjects;
 
 import com.logigear.common.Utilities;
 import com.logigear.common.Constant;
@@ -47,8 +47,6 @@ public class BookTicketPage extends GeneralPage {
     public String getErrorBookingMsg() {
         return Constant.WEBDRIVER.findElement(errorBookingMsg).getText();
     }
-
-
 
     public void bookTicket() {
         Select departDate = new Select(getSelectedDate());

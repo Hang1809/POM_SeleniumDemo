@@ -1,12 +1,9 @@
 package com.logigear.testcases.railway;
 
 import com.logigear.common.Constant;
-import com.logigear.pages.HomePage;
-import com.logigear.pages.RegisterPage;
-import org.openqa.selenium.chrome.ChromeDriver;
+import com.logigear.pagesObjects.HomePage;
+import com.logigear.pagesObjects.RegisterPage;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class RegisterTest extends BaseTest{
@@ -60,6 +57,8 @@ public class RegisterTest extends BaseTest{
 
         String actualMsg = registerPage.getLblInvalidErrorMsgTxt();
         String expectedMsg = "The two passwords do not match";
+        Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
+
     }
 
     @Test
@@ -71,6 +70,8 @@ public class RegisterTest extends BaseTest{
 
         String actualMsg = registerPage.getLblInvalidErrorMsgTxt();
         String expectedMsg = "Invalid password length";
+        Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
+
     }
 
 }

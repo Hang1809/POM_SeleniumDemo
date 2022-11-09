@@ -1,10 +1,8 @@
-package com.logigear.pages;
+package com.logigear.pagesObjects;
 
 import com.logigear.common.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
-
 public class LoginPage extends GeneralPage {
 
     //Locators
@@ -14,23 +12,24 @@ public class LoginPage extends GeneralPage {
     private final By lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
 
     //Elements
-    public WebElement getTxtUsername(){
+    public WebElement getTxtUsername() {
         return Constant.WEBDRIVER.findElement(txtUsername);
     }
 
-    public WebElement getTxtPassword(){
+    public WebElement getTxtPassword() {
         return Constant.WEBDRIVER.findElement(txtPassword);
     }
-    public WebElement getBtnLogin(){
+
+    public WebElement getBtnLogin() {
 
         return Constant.WEBDRIVER.findElement(btnLogin);
     }
 
-    public WebElement getLblLoginErrorMsg(){
+    public WebElement getLblLoginErrorMsg() {
         return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
     }
 
-    public void login (String username, String password){
+    public void login(String username, String password) {
         getTxtUsername().sendKeys(username);
         getTxtPassword().sendKeys(password);
         getBtnLogin().click();
@@ -40,7 +39,9 @@ public class LoginPage extends GeneralPage {
     public String getWelcomeMessage() {
         return super.getWelcomeMessage();
     }
-    public String getLblLoginErrorMsgTxt(){
+
+    public String getLblLoginErrorMsgTxt() {
         return this.getLblLoginErrorMsg().getText();
     }
 }
+

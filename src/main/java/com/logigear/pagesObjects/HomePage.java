@@ -1,4 +1,4 @@
-package com.logigear.pages;
+package com.logigear.pagesObjects;
 
 import com.logigear.common.Constant;
 

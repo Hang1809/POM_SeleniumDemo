@@ -1,4 +1,4 @@
-package com.logigear.pages;
+package com.logigear.pagesObjects;
 
 import com.logigear.common.Utilities;
 import com.logigear.common.Constant;
@@ -45,6 +45,4 @@ public class MyTicketPage extends GeneralPage {
         getBtnFilter().click();
 
     }
-
-
 }

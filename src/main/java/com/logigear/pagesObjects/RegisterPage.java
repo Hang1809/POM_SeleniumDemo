@@ -1,4 +1,4 @@
-package com.logigear.pages;
+package com.logigear.pagesObjects;
 
 import com.logigear.common.Utilities;
 import com.logigear.common.Constant;
@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 
 
 public class RegisterPage extends GeneralPage {
+
     //Locators
     private final By txtUsername = By.xpath("//input[@id='email']");
     private final By txtPassword = By.xpath("//input[@id='password']");
@@ -16,7 +17,6 @@ public class RegisterPage extends GeneralPage {
     private final By successRegisterMsg = By.xpath("//div[@id='content']/p[contains(text(),'here')]");
     private final By lblRegisterErrorMsg = By.xpath("//p[@class='message error']");
     private final By blInvalidErrorMsg = By.xpath("//label[@class='validation-error']");
-
 
     //Elements
     public WebElement getTxtUsername() {
@@ -51,7 +51,6 @@ public class RegisterPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(successRegisterMsg);
     }
 
-
     public void register(String username, String password, String confirmPassword, String pID) {
         getTxtUsername().sendKeys(username);
         getTxtPassword().sendKeys(password);
@@ -73,5 +72,4 @@ public class RegisterPage extends GeneralPage {
     public String getLblInvalidErrorMsgTxt() {
         return this.getLblInvalidErrorMsg().getText();
     }
-
 }

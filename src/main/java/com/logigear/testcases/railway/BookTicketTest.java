@@ -1,9 +1,9 @@
 package com.logigear.testcases.railway;
 
 import com.logigear.common.Constant;
-import com.logigear.pages.BookTicketPage;
-import com.logigear.pages.HomePage;
-import com.logigear.pages.LoginPage;
+import com.logigear.pagesObjects.BookTicketPage;
+import com.logigear.pagesObjects.HomePage;
+import com.logigear.pagesObjects.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

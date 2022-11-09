@@ -1,4 +1,4 @@
-package com.logigear.pages;
+package com.logigear.pagesObjects;
 
 import com.logigear.common.Constant;
 import org.openqa.selenium.By;
@@ -13,46 +13,60 @@ public class GeneralPage {
     private final By lblWelcomeMessage = By.xpath("//div[@class='account']/strong");
     private final By tabBookTicket = By.xpath("//div[@id='menu']//a[@href='/Page/BookTicketPage.cshtml']");
     private final By tabMyTicket = By.xpath("//div[@id='menu']//a[@href='/Page/ManageTicket.cshtml']");
-
     private final By link = By.xpath("//center/a[contains(text(),'Somee.com')]");
 
 
     //Elements
-    protected WebElement getTabLogin(){
+    protected WebElement getTabLogin() {
         return Constant.WEBDRIVER.findElement(tabLogin);
     }
-    protected WebElement getTabRegister(){return Constant.WEBDRIVER.findElement(tabRegister);}
-    protected WebElement getTabLogout(){
+
+    protected WebElement getTabRegister() {
+        return Constant.WEBDRIVER.findElement(tabRegister);
+    }
+
+    protected WebElement getTabLogout() {
         return Constant.WEBDRIVER.findElement(tabLogout);
     }
-    protected WebElement getLblWelcomeMessage(){
+
+    protected WebElement getLblWelcomeMessage() {
         return Constant.WEBDRIVER.findElement(lblWelcomeMessage);
     }
-    protected WebElement getTabBookTicket(){return Constant.WEBDRIVER.findElement(tabBookTicket);}
-    protected WebElement getTabMyTicket(){return Constant.WEBDRIVER.findElement(tabMyTicket);}
-    protected WebElement getLink(){
+
+    protected WebElement getTabBookTicket() {
+        return Constant.WEBDRIVER.findElement(tabBookTicket);
+    }
+
+    protected WebElement getTabMyTicket() {
+        return Constant.WEBDRIVER.findElement(tabMyTicket);
+    }
+
+    protected WebElement getLink() {
         return Constant.WEBDRIVER.findElement(link);
     }
 
     //Methods
-    public String getWelcomeMessage(){
+    public String getWelcomeMessage() {
         return this.getLblWelcomeMessage().getText();
     }
-    public void gotoLoginPage(){
+
+    public void gotoLoginPage() {
         this.getTabLogin().click();
     }
 
-    public void gotoRegisterPage(){
+    public void gotoRegisterPage() {
         this.getTabRegister().click();
     }
 
-    public void gotoBookTicketPage(){
+    public void gotoBookTicketPage() {
         this.getTabBookTicket().click();
     }
-    public void logoutPage(){
+
+    public void logoutPage() {
         this.getTabLogout().click();
     }
-    public void gotoMyTicketPage(){
+
+    public void gotoMyTicketPage() {
         this.getTabMyTicket().click();
     }
 }
