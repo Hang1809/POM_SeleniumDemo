@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class CSVUtils {
+    public final static String path = "data/invalidpassword.csv";
     public static List<String> readData(String path) throws IllegalArgumentException {
         try{
             return Files.readAllLines(Paths.get(path));

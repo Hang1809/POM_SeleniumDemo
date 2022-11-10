@@ -7,14 +7,14 @@ import com.logigear.pagesObjects.MyTicketPage;
 import org.testng.annotations.Test;
 
 public class MyTicketTest extends BaseTest{
-    HomePage homePage = new HomePage();
+
     LoginPage loginPage = new LoginPage();
     MyTicketPage myTicketPage = new MyTicketPage();
 
     @Test
     public void TC15(){
         System.out.println("User can filter ticket with valid data : depart station, arrive station, status");
-        homePage.open();
+
         loginPage.gotoLoginPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         myTicketPage.gotoMyTicketPage();

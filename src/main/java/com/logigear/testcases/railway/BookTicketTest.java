@@ -2,20 +2,25 @@ package com.logigear.testcases.railway;
 
 import com.logigear.common.Constant;
 import com.logigear.pagesObjects.BookTicketPage;
-import com.logigear.pagesObjects.HomePage;
 import com.logigear.pagesObjects.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class BookTicketTest extends BaseTest{
-    HomePage homePage = new HomePage();
+
     LoginPage loginPage = new LoginPage();
     BookTicketPage bookTicketPage = new BookTicketPage();
 
     @Test
+    public void TC04(){
+        System.out.println("Login page displays when un-logged User clicks on 'Book ticket' tab");
+        bookTicketPage.gotoBookTicketPage();
+
+    }
+    @Test
     public void TC11(){
         System.out.println("User can book ticket successfully with valid data input");
-        homePage.open();
+
         loginPage.gotoLoginPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         bookTicketPage.gotoBookTicketPage();
@@ -30,7 +35,7 @@ public class BookTicketTest extends BaseTest{
     public void TC12(){
         System.out.println("User can't book over 10 tickets");
         System.out.println("Pre-condition: Having booked ticket already");
-        homePage.open();
+
         loginPage.gotoLoginPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         bookTicketPage.gotoBookTicketPage();

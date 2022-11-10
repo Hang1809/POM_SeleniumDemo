@@ -1,6 +1,7 @@
 package com.logigear.testcases.railway;
 
 import com.logigear.common.Constant;
+import com.logigear.dataObjects.invalidPass.InvalidPassService;
 import com.logigear.pagesObjects.HomePage;
 import com.logigear.pagesObjects.LoginPage;
 import org.testng.Assert;
@@ -9,11 +10,12 @@ import org.testng.annotations.Test;
 public class LoginTest extends BaseTest{
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
+    InvalidPassService invalidPassService = new InvalidPassService();
 
     @Test
     public void TC01() {
-        System.out.println("TC01- User can login with valid username and password");
-        homePage.open();
+        System.out.println("TC01- User can log into Railway with valid username and password");
+
         homePage.gotoLoginPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
 
@@ -25,34 +27,8 @@ public class LoginTest extends BaseTest{
 
     @Test
     public void TC02() {
-        System.out.println("TC02- User can't login with invalid username");
-        homePage.open();
-        homePage.gotoLoginPage();
-        loginPage.login(Constant.INVALID_USERNAME, Constant.PASSWORD);
+        System.out.println("TC02 - User can't login with blank 'Username' textbox");
 
-        String actualMsg = loginPage.getLblLoginErrorMsgTxt();
-        String expectedMsg = "Invalid username or password. Please try again.";
-
-        Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed correctly");
-    }
-
-    @Test
-    public void TC03() {
-        System.out.println("TC03 - User can't login with invalid password");
-        homePage.open();
-        homePage.gotoLoginPage();
-        loginPage.login(Constant.USERNAME, "ABCD123");
-
-        String actualMsg = loginPage.getLblLoginErrorMsgTxt();
-        String expectedMsg = "Invalid username or password. Please try again.";
-
-        Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed correctly");
-    }
-
-    @Test
-    public void TC04() {
-        System.out.println("TC03 - User can't login with blank email");
-        homePage.open();
         homePage.gotoLoginPage();
         loginPage.login("", Constant.PASSWORD);
 
@@ -63,15 +39,41 @@ public class LoginTest extends BaseTest{
     }
 
     @Test
-    public void TC05() {
-        System.out.println("TC03 - User can't login with blank password");
-        homePage.open();
+    public void TC03() {
+        System.out.println("TC03 - User cannot log into Railway with invalid password ");
+
         homePage.gotoLoginPage();
-        loginPage.login(Constant.USERNAME, "");
+        String actualMsg = "";
+        String expectedMsg = "Invalid username or password. Please try again.";
+        for(int i =0; i<=4; i++) {
+            loginPage.login(Constant.USERNAME, String.valueOf(invalidPassService.getInvalidPassById(i)));
+            actualMsg= loginPage.getLblLoginErrorMsgTxt();
+            Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed correctly");
+        };
+    }
 
-        String actualMsg = loginPage.getLblLoginErrorMsgTxt();
-        String expectedMsg = "There was a problem with your login and/or errors exist in your form.";
+    @Test
+    public void TC05(){
+        System.out.println("System shows message when user enters wrong password several times");
 
-        Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed correctly");
+        homePage.gotoLoginPage();
+        String actualMsg ="";
+        String expectedMsg = "Invalid username or password. Please try again.";
+        for (int i =0; i<=3; i++){
+            loginPage.login(Constant.USERNAME,String.valueOf(invalidPassService.getInvalidPassById(i)));
+            actualMsg= loginPage.getLblLoginErrorMsgTxt();
+            Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed correctly");
+        }
+    }
+
+    @Test
+    public void TC06(){
+        System.out.println("Additional pages display once user logged in");
+
+        homePage.gotoLoginPage();
+        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
+        loginPage.gotoChangePasswordPage();
+        loginPage.gotoMyTicketPage();
+
     }
 }

@@ -7,12 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class MyTicketPage extends GeneralPage {
+    private By titleMyTicketPage = By.xpath("//h1[contains(text(),'Manage Tickets')]");
     private By filterDptStation = By.xpath("//select[@name='FilterDpStation']");
     private By filterArStation = By.xpath("//select[@name='FilterArStation']");
     private By filterDptDate = By.xpath("//input[@name='FilterDpDate']");
     private By filterStatus = By.xpath("//select[@name='FilterStatus']");
     private By btnFilter = By.xpath("//input[@type='submit' and @value='Apply Filter']");
     private By successFilterMsg = By.xpath("//");
+
 
     public WebElement getFilterDptStation(){
         return Constant.WEBDRIVER.findElement(filterDptStation);
@@ -29,6 +31,7 @@ public class MyTicketPage extends GeneralPage {
     public WebElement getBtnFilter(){
         return Constant.WEBDRIVER.findElement(btnFilter);
     }
+    public String getTitleMyTicketPage(){return Constant.WEBDRIVER.findElement(titleMyTicketPage).getText();}
     public String getSuccessFilterMsg(){
         return Constant.WEBDRIVER.findElement(successFilterMsg).getText();
     }

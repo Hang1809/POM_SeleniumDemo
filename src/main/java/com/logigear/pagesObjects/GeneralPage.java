@@ -13,6 +13,7 @@ public class GeneralPage {
     private final By lblWelcomeMessage = By.xpath("//div[@class='account']/strong");
     private final By tabBookTicket = By.xpath("//div[@id='menu']//a[@href='/Page/BookTicketPage.cshtml']");
     private final By tabMyTicket = By.xpath("//div[@id='menu']//a[@href='/Page/ManageTicket.cshtml']");
+    private final By tabChangePassword = By.xpath("//div[@id='menu']//a[@href='/Account/ChangePassword.cshtml']");
     private final By link = By.xpath("//center/a[contains(text(),'Somee.com')]");
 
 
@@ -39,6 +40,10 @@ public class GeneralPage {
 
     protected WebElement getTabMyTicket() {
         return Constant.WEBDRIVER.findElement(tabMyTicket);
+    }
+
+    protected WebElement getTabChangePassword() {
+        return Constant.WEBDRIVER.findElement(tabChangePassword);
     }
 
     protected WebElement getLink() {
@@ -68,5 +73,8 @@ public class GeneralPage {
 
     public void gotoMyTicketPage() {
         this.getTabMyTicket().click();
+    }
+    public void gotoChangePasswordPage(){
+        this.getTabChangePassword().click();
     }
 }

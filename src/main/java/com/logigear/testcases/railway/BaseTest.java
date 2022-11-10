@@ -1,6 +1,7 @@
 package com.logigear.testcases.railway;
 
 import com.logigear.common.Constant;
+import com.logigear.common.DriverManager;
 import com.logigear.common.Utilities;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -13,6 +14,7 @@ public class BaseTest {
         System.setProperty("webdriver.chrome.driver", Utilities.getProjectPath()+ "\\executables\\chromedriver.exe");
         Constant.WEBDRIVER = new ChromeDriver();
         Constant.WEBDRIVER.manage().window().maximize();
+        DriverManager.open();
     }
 
     @AfterMethod
