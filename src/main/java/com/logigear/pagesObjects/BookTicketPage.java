@@ -48,34 +48,18 @@ public class BookTicketPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(errorBookingMsg).getText();
     }
 
-    public void bookTicket() {
-        Select departDate = new Select(getSelectedDate());
-        Select departFrom = new Select(getSelectedDepart());
-        Select arrive = new Select(getSelectedArrive());
-        Select ticket = new Select(getSelectedTicketAmount());
-        Select seat = new Select(getSelectedSeatType());
+    public void bookTicket(String departDate, String departFrom, String arrive, String ticket, String seat) {
+        Select sltDepartDate = new Select(getSelectedDate());
+        Select sltDepartFrom = new Select(getSelectedDepart());
+        Select sltArrive = new Select(getSelectedArrive());
+        Select sltTicket = new Select(getSelectedTicketAmount());
+        Select sltSeat = new Select(getSelectedSeatType());
         Utilities.scrollToElement(getLink());
-        departDate.selectByValue("4");
-        departFrom.selectByValue("4");
-        arrive.selectByValue("3");
-        ticket.selectByValue("1");
-        seat.selectByValue("1");
+        sltDepartDate.selectByIndex(Integer.parseInt(departDate));
+        sltDepartFrom.selectByVisibleText(departFrom);
+        sltArrive.selectByVisibleText(arrive);
+        sltTicket.selectByVisibleText(ticket);
+        sltSeat.selectByVisibleText(seat);
         getBtnBookTicket().click();
     }
-
-    public void book10Ticket() {
-        Utilities.scrollToElement(getLink());
-        Select departDate = new Select(getSelectedDate());
-        Select departFrom = new Select(getSelectedDepart());
-        Select arrive = new Select(getSelectedArrive());
-        Select ticket = new Select(getSelectedTicketAmount());
-        Select seat = new Select(getSelectedSeatType());
-        departDate.selectByValue("4");
-        departFrom.selectByValue("4");
-        arrive.selectByValue("3");
-        ticket.selectByValue("10");
-        seat.selectByValue("1");
-        getBtnBookTicket().click();
-    }
-
 }

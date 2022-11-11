@@ -4,6 +4,7 @@ import com.logigear.common.Constant;
 import com.logigear.dataObjects.invalidPass.InvalidPassService;
 import com.logigear.pagesObjects.HomePage;
 import com.logigear.pagesObjects.LoginPage;
+import com.logigear.pagesObjects.MyTicketPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -11,12 +12,13 @@ public class LoginTest extends BaseTest{
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
     InvalidPassService invalidPassService = new InvalidPassService();
+    MyTicketPage myTicketPage = new MyTicketPage();
 
     @Test
     public void TC01() {
         System.out.println("TC01- User can log into Railway with valid username and password");
 
-        homePage.gotoLoginPage();
+        homePage.goToLoginPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
 
         String actualMsg = loginPage.getWelcomeMessage();
@@ -29,7 +31,7 @@ public class LoginTest extends BaseTest{
     public void TC02() {
         System.out.println("TC02 - User can't login with blank 'Username' textbox");
 
-        homePage.gotoLoginPage();
+        homePage.goToLoginPage();
         loginPage.login("", Constant.PASSWORD);
 
         String actualMsg = loginPage.getLblLoginErrorMsgTxt();
@@ -42,7 +44,7 @@ public class LoginTest extends BaseTest{
     public void TC03() {
         System.out.println("TC03 - User cannot log into Railway with invalid password ");
 
-        homePage.gotoLoginPage();
+        homePage.goToLoginPage();
         String actualMsg = "";
         String expectedMsg = "Invalid username or password. Please try again.";
         for(int i =0; i<=4; i++) {
@@ -56,7 +58,7 @@ public class LoginTest extends BaseTest{
     public void TC05(){
         System.out.println("System shows message when user enters wrong password several times");
 
-        homePage.gotoLoginPage();
+        homePage.goToLoginPage();
         String actualMsg ="";
         String expectedMsg = "Invalid username or password. Please try again.";
         for (int i =0; i<=3; i++){
@@ -70,10 +72,15 @@ public class LoginTest extends BaseTest{
     public void TC06(){
         System.out.println("Additional pages display once user logged in");
 
-        homePage.gotoLoginPage();
+        homePage.goToLoginPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
-        loginPage.gotoChangePasswordPage();
-        loginPage.gotoMyTicketPage();
+        loginPage.goToChangePasswordPage();
+        loginPage.goToMyTicketPage();
+
+        String actualMsg=myTicketPage.getTitleMyTicketPage();
+        String expectedMsg ="Manage Tickets";
+
+        Assert.assertEquals(actualMsg,expectedMsg,"Success message is not displayed correctly");
 
     }
 }

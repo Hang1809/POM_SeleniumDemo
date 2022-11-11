@@ -14,7 +14,7 @@ public class ChangePasswordTest {
     public void TC09(){
         System.out.println("User can change password");
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
-        loginPage.gotoChangePasswordPage();
+        loginPage.goToChangePasswordPage();
 
 
     }

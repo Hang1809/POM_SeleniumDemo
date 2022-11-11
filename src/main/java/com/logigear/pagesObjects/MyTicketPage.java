@@ -15,7 +15,6 @@ public class MyTicketPage extends GeneralPage {
     private By btnFilter = By.xpath("//input[@type='submit' and @value='Apply Filter']");
     private By successFilterMsg = By.xpath("//");
 
-
     public WebElement getFilterDptStation(){
         return Constant.WEBDRIVER.findElement(filterDptStation);
     }

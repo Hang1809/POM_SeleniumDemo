@@ -7,12 +7,15 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class RegisterTest extends BaseTest{
+
+    HomePage homePage = new HomePage();
     RegisterPage registerPage = new RegisterPage();
 
     @Test
     public void TC07() {
         System.out.println("User can create new account ");
 
+        homePage.goToRegisterPage();
         registerPage.register(Constant.REGISTER_USERNAME, Constant.PASSWORD, Constant.PASSWORD, Constant.PID);
 
         String actualMsg = registerPage.getSuccessRegisterMsgTxt();
@@ -21,55 +24,30 @@ public class RegisterTest extends BaseTest{
         Assert.assertEquals(actualMsg, expectedMsg, "Success message is not displayed as expected");
     }
 
-//    @Test
-//    public void TC07() {
-//        System.out.println("User can't register account with existing email address");
-//
-//        homePage.gotoRegisterPage();
-//        registerPage.register(Constant.USERNAME, Constant.PASSWORD, Constant.PASSWORD, Constant.PID);
-//
-//        String actualMsg = registerPage.getLblRegisterErrorMsgTxt();
-//        String expectedMsg = "This email address is already in use.";
-//        Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
-//    }
-//
-//    @Test
-//    public void TC08() {
-//        System.out.println("User can't register account  if email length isn't from 6 to 32 characters");
-//
-//        homePage.gotoRegisterPage();
-//        registerPage.register(Constant.INVALID_USERNAME, Constant.PASSWORD, Constant.PASSWORD, Constant.PID);
-//
-//        String actualMsg = registerPage.getLblInvalidErrorMsgTxt();
-//        String expectedMsg = "Invalid email length";
-//        Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
-//
-//    }
-//
-//    @Test
-//    public void TC10() {
-//        System.out.println(" User can't create account with "Confirm password" is not the same with "Password"");
-//
-//        homePage.gotoRegisterPage();
-//        registerPage.register(Constant.USERNAME, Constant.PASSWORD, "1234", Constant.PID);
-//
-//        String actualMsg = registerPage.getLblInvalidErrorMsgTxt();
-//        String expectedMsg = "The two passwords do not match";
-//        Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
-//
-//    }
-//
-//    @Test
-//    public void TC10() {
-//        System.out.println("User can't register account with blank password");
-//
-//        homePage.gotoRegisterPage();
-//        registerPage.register(Constant.USERNAME, "", Constant.PASSWORD, Constant.PID);
-//
-//        String actualMsg = registerPage.getLblInvalidErrorMsgTxt();
-//        String expectedMsg = "Invalid password length";
-//        Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
-//
-//    }
+    @Test
+    public void TC10(){
+        System.out.println("User can't create account with 'Confirm password' is not the same with 'Password' ");
+
+        homePage.goToRegisterPage();
+        registerPage.register(Constant.REGISTER_USERNAME,Constant.PASSWORD,"abc",Constant.PID);
+
+        String actualMsg = registerPage.getLblInvalidErrorMsgTxt();
+        String expectedMsg = "The two passwords do not match";
+
+        Assert.assertEquals(actualMsg,expectedMsg,"Error message is not displayed as expected");
+    }
+
+    @Test
+    public void TC11(){
+        System.out.println("User can't create account while password and PID fields are empty");
+
+        homePage.goToRegisterPage();
+        registerPage.register(Constant.REGISTER_USERNAME, "","","");
+
+        String actualMsg = registerPage.getLblRegisterErrorMsgTxt();
+        String expectedMsg = "There're errors in the form. Please correct the errors and try again.";
+
+        Assert.assertEquals(actualMsg,expectedMsg,"Error message is not displayed as expected");
+    }
 
 }
