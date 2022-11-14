@@ -47,4 +47,3 @@ public class LoginPage extends GeneralPage {
     public String getTitleLoginPage(){ return Constant.WEBDRIVER.findElement(titleLoginPage).getText();}
 
 }
-

@@ -7,7 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class RegisterTest extends BaseTest{
-
     HomePage homePage = new HomePage();
     RegisterPage registerPage = new RegisterPage();
 
@@ -49,5 +48,4 @@ public class RegisterTest extends BaseTest{
 
         Assert.assertEquals(actualMsg,expectedMsg,"Error message is not displayed as expected");
     }
-
 }

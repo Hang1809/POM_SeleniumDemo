@@ -35,15 +35,15 @@ public class MyTicketPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(successFilterMsg).getText();
     }
 
-    public void filterTicket(){
+    public void filterTicket(String departureStation,String arriveStation,String dptDate, String statusTicket){
         Utilities.scrollToElement(getLink());
         Select dptStation = new Select(getFilterDptStation());
         Select arStation = new Select(getFilterArStation());
         Select status = new Select(getFilterStatus());
-        dptStation.selectByValue("2");
-        arStation.selectByValue("3");
-        getFilterDptDate().sendKeys("");
-        status.selectByValue("1");
+        dptStation.selectByValue(departureStation);
+        arStation.selectByValue(arriveStation);
+        getFilterDptDate().sendKeys(dptDate);
+        status.selectByValue(statusTicket);
         getBtnFilter().click();
 
     }

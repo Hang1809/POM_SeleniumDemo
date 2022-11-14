@@ -8,9 +8,11 @@ public class InvalidPass {
         return id;
     }
 
-    public InvalidPass(){}
-    public InvalidPass (String record){
+    public InvalidPass() {
+    }
+
+    public InvalidPass(String record) {
         String[] invalidDataPass = record.split(",");
-        this.invalidPass= invalidDataPass[1];
+        this.invalidPass = invalidDataPass[1];
     }
 }

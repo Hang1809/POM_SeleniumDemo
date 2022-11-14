@@ -17,8 +17,7 @@ public class MyTicketTest extends BaseTest{
         loginPage.goToLoginPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         myTicketPage.goToMyTicketPage();
-        myTicketPage.filterTicket();
+        myTicketPage.filterTicket("2","3","","1");
 
-        
     }
 }

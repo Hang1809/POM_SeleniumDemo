@@ -16,6 +16,5 @@ public class ChangePasswordTest {
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         loginPage.goToChangePasswordPage();
 
-
     }
 }

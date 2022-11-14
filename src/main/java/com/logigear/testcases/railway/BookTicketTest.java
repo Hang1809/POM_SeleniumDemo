@@ -49,5 +49,4 @@ public class BookTicketTest extends BaseTest{
         System.out.println("Step4: Click on 'book ticket' link of the route from 'Huế' to 'Sài Gòn' ");
 
     }
-
 }

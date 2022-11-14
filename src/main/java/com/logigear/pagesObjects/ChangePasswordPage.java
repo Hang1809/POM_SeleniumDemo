@@ -19,11 +19,9 @@ public class ChangePasswordPage {
     public WebElement getNewPass = Constant.WEBDRIVER.findElement(txtNewPass);
     public WebElement getConfirmPass = Constant.WEBDRIVER.findElement(txtConfirmPass);
     public WebElement getBtnChangePass = Constant.WEBDRIVER.findElement(btnChangePass);
-
     public String getLblSuccessChangPassMsg(){
       return Constant.WEBDRIVER.findElement(lblSuccessChangePass).getText();
     }
-
     public String getTitleChangePassPage() { return Constant.WEBDRIVER.findElement(titleChangePassPage).getText(); }
 
     public void changePassword(){

@@ -81,6 +81,5 @@ public class LoginTest extends BaseTest{
         String expectedMsg ="Manage Tickets";
 
         Assert.assertEquals(actualMsg,expectedMsg,"Success message is not displayed correctly");
-
     }
 }
