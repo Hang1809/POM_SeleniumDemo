@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.sql.Driver;
+
 public class MyTicketPage extends GeneralPage {
     private By titleMyTicketPage = By.xpath("//h1[contains(text(),'Manage Tickets')]");
     private By filterDptStation = By.xpath("//select[@name='FilterDpStation']");
@@ -14,6 +16,8 @@ public class MyTicketPage extends GeneralPage {
     private By filterStatus = By.xpath("//select[@name='FilterStatus']");
     private By btnFilter = By.xpath("//input[@type='submit' and @value='Apply Filter']");
     private By successFilterMsg = By.xpath("//");
+    private By btnCancel = By.xpath("//input[@type='button' and @value='Cancel']");
+
 
     public WebElement getFilterDptStation(){
         return Constant.WEBDRIVER.findElement(filterDptStation);
@@ -30,6 +34,7 @@ public class MyTicketPage extends GeneralPage {
     public WebElement getBtnFilter(){
         return Constant.WEBDRIVER.findElement(btnFilter);
     }
+    public WebElement getBtnCancel(){ return Constant.WEBDRIVER.findElement(btnCancel); }
     public String getTitleMyTicketPage(){return Constant.WEBDRIVER.findElement(titleMyTicketPage).getText();}
     public String getSuccessFilterMsg(){
         return Constant.WEBDRIVER.findElement(successFilterMsg).getText();
@@ -45,6 +50,13 @@ public class MyTicketPage extends GeneralPage {
         getFilterDptDate().sendKeys(dptDate);
         status.selectByValue(statusTicket);
         getBtnFilter().click();
-
     }
+    public void cancelTicket(){
+        Utilities.scrollToElement(getLink());
+        getBtnCancel().click();
+    }
+    public void acceptAlert(){
+        Constant.WEBDRIVER.switchTo().alert().accept();
+    }
+
 }

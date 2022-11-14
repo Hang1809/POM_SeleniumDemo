@@ -20,4 +20,15 @@ public class MyTicketTest extends BaseTest{
         myTicketPage.filterTicket("2","3","","1");
 
     }
+
+    @Test public void TC16(){
+        System.out.println("User can cancel a ticket");
+
+        loginPage.goToLoginPage();
+        loginPage.login(Constant.USERNAME,Constant.PASSWORD);
+        loginPage.goToMyTicketPage();
+        myTicketPage.cancelTicket();
+        myTicketPage.acceptAlert();
+
+    }
 }
