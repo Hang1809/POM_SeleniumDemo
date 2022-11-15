@@ -7,6 +7,11 @@ import org.openqa.selenium.WebElement;
 public class GeneralPage {
 
     //Locators
+    private String tabMenu = "//div[@id='%s']";
+    public WebElement getTabMenu(String tabName){
+        return Constant.WEBDRIVER.findElement(By.id(String.format(tabMenu,tabName)));
+    }
+    private String tabLoginn = "//a[@href='/Account/Login.cshtml']";
     private final By tabLogin = By.xpath("//div[@id='menu']//a[@href='/Account/Login.cshtml']");
     private final By tabRegister = By.xpath("//div[@id='menu']//a[@href='/Account/Register.cshtml']");
     private final By tabLogout = By.xpath("//div[@id='menu']//a[@href='/Account/Logout']");

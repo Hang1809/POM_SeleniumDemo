@@ -15,10 +15,11 @@ public class MyTicketPage extends GeneralPage {
     private By filterDptDate = By.xpath("//input[@name='FilterDpDate']");
     private By filterStatus = By.xpath("//select[@name='FilterStatus']");
     private By btnFilter = By.xpath("//input[@type='submit' and @value='Apply Filter']");
-    private By successFilterMsg = By.xpath("//");
-    private By btnCancel = By.xpath("//input[@type='button' and @value='Cancel']");
+    private String btnCancelWithRowNumber = "//td[.='%s']/..//input[@type='button' and @value='Cancel' or @value='Delete']";
 
-
+    public WebElement getBtnCancelWithRow(String rowNumber){
+        return Constant.WEBDRIVER.findElement(By.xpath(String.format(btnCancelWithRowNumber,rowNumber)));
+    }
     public WebElement getFilterDptStation(){
         return Constant.WEBDRIVER.findElement(filterDptStation);
     }
@@ -34,11 +35,7 @@ public class MyTicketPage extends GeneralPage {
     public WebElement getBtnFilter(){
         return Constant.WEBDRIVER.findElement(btnFilter);
     }
-    public WebElement getBtnCancel(){ return Constant.WEBDRIVER.findElement(btnCancel); }
     public String getTitleMyTicketPage(){return Constant.WEBDRIVER.findElement(titleMyTicketPage).getText();}
-    public String getSuccessFilterMsg(){
-        return Constant.WEBDRIVER.findElement(successFilterMsg).getText();
-    }
 
     public void filterTicket(String departureStation,String arriveStation,String dptDate, String statusTicket){
         Utilities.scrollToElement(getLink());
@@ -51,9 +48,9 @@ public class MyTicketPage extends GeneralPage {
         status.selectByValue(statusTicket);
         getBtnFilter().click();
     }
-    public void cancelTicket(){
+    public void cancelTicketByStringRow(String rowNumber){
         Utilities.scrollToElement(getLink());
-        getBtnCancel().click();
+        getBtnCancelWithRow(rowNumber).click();
     }
     public void acceptAlert(){
         Constant.WEBDRIVER.switchTo().alert().accept();

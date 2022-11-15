@@ -1,6 +1,7 @@
 package com.logigear.pagesObjects;
 
 import com.logigear.common.Constant;
+import com.logigear.common.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 public class LoginPage extends GeneralPage {
@@ -31,7 +32,7 @@ public class LoginPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
     }
 
-    public void login(String username, String password) {
+    public void fillDataLogin(String username, String password) {
         getTxtUsername().sendKeys(username);
         getTxtPassword().sendKeys(password);
         getBtnLogin().click();

@@ -1,5 +1,6 @@
 package com.logigear.pagesObjects;
 
+import com.logigear.common.Log;
 import com.logigear.common.Utilities;
 import com.logigear.common.Constant;
 import org.openqa.selenium.By;
@@ -57,6 +58,7 @@ public class RegisterPage extends GeneralPage {
         getTxtConfirmPass().sendKeys(confirmPassword);
         getTxtPID().sendKeys(pID);
         Utilities.scrollToElement(getLink());
+        Log.info("Click on 'Register' button");
         getBtnRegister().click();
 
     }

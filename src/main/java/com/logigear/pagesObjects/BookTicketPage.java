@@ -1,5 +1,6 @@
 package com.logigear.pagesObjects;
 
+import com.logigear.common.Log;
 import com.logigear.common.Utilities;
 import com.logigear.common.Constant;
 import org.openqa.selenium.By;
@@ -60,6 +61,7 @@ public class BookTicketPage extends GeneralPage {
         sltArrive.selectByVisibleText(arrive);
         sltTicket.selectByVisibleText(ticket);
         sltSeat.selectByVisibleText(seat);
+        Log.info("Step8: Click on \"Book ticket\" button");
         getBtnBookTicket().click();
     }
 }

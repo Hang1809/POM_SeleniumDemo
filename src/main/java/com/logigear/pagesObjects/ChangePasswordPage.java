@@ -1,6 +1,7 @@
 package com.logigear.pagesObjects;
 
 import com.logigear.common.Constant;
+import com.logigear.common.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -32,6 +33,7 @@ public class ChangePasswordPage extends GeneralPage {
         getCurrentPass().sendKeys(currentPass);
         getNewPass().sendKeys(newPass);
         getConfirmPass().sendKeys(confirmPass);
+        Log.info("Step5: Click on \"Change Password\" button");
         getBtnChangePass().click();
     }
 }

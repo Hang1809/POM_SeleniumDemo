@@ -16,4 +16,5 @@ public class Utilities {
     public static String getProjectPath(){
         return "src/main/resources";
     }
+
 }
