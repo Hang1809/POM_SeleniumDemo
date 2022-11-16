@@ -2,6 +2,7 @@ package com.logigear.testcases.railway.login;
 
 import com.logigear.common.Constant;
 import com.logigear.common.Log;
+import com.logigear.common.PropertiesFile;
 import com.logigear.dataObjects.invalidPass.InvalidPassService;
 import com.logigear.pagesObjects.HomePage;
 import com.logigear.pagesObjects.LoginPage;
@@ -21,7 +22,7 @@ public class TC02_LoginWithBlankUsernameTxt extends BaseTest {
         Log.info("Step2: Click on 'Login' tab");
         homePage.goToLoginPage();
         Log.info("Step3: User doesn't type any words into 'Username' textbox but enter valid information into 'Password' textbox ");
-        loginPage.fillDataLogin("", Constant.PASSWORD);
+        loginPage.fillDataLogin("", PropertiesFile.getPropValue("password"));
 
         String actualMsg = loginPage.getLblLoginErrorMsgTxt();
         String expectedMsg = "There was a problem with your login and/or errors exist in your form.";

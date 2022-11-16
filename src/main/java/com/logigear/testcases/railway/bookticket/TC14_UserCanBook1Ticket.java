@@ -2,6 +2,7 @@ package com.logigear.testcases.railway.bookticket;
 
 import com.logigear.common.Constant;
 import com.logigear.common.Log;
+import com.logigear.common.PropertiesFile;
 import com.logigear.pagesObjects.BookTicketPage;
 import com.logigear.pagesObjects.HomePage;
 import com.logigear.pagesObjects.LoginPage;
@@ -22,7 +23,7 @@ public class TC14_UserCanBook1Ticket extends BaseTest {
         Log.info("Step1: Navigate to QA Railway Website");
         Log.info("Step2: Login with a valid account ");
         homePage.goToLoginPage();
-        loginPage.fillDataLogin(Constant.USERNAME, Constant.PASSWORD);
+        loginPage.fillDataLogin(Constant.USERNAME, PropertiesFile.getPropValue("password"));
         Log.info("Step3: Click on 'Book ticket' tab ");
         bookTicketPage.goToBookTicketPage();
         Log.info("Step4: Select a \"Depart date\" from the list");

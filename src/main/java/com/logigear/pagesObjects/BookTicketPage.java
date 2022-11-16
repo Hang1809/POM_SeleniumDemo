@@ -55,8 +55,8 @@ public class BookTicketPage extends GeneralPage {
         Select sltArrive = new Select(getSelectedArrive());
         Select sltTicket = new Select(getSelectedTicketAmount());
         Select sltSeat = new Select(getSelectedSeatType());
-        Utilities.scrollToElementInFireFox();
-        //Utilities.scrollToElement(getLink());
+        //Utilities.scrollToElementInFireFox();
+        Utilities.scrollToElement(getLink());
         sltDepartDate.selectByIndex(Integer.parseInt(departDate));
         sltDepartFrom.selectByVisibleText(departFrom);
         sltArrive.selectByVisibleText(arrive);

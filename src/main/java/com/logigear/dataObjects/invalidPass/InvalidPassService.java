@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InvalidPassService {
-
     public List<InvalidPass> getInvalidPassData() {
         List<InvalidPass> invalidPass = new ArrayList<>();
         List<String> records = CSVUtils.readData(CSVUtils.path);
@@ -16,7 +15,6 @@ public class InvalidPassService {
         }
         return invalidPass;
     }
-
     public List<InvalidPass> getInvalidPassById(int id) {
         List<InvalidPass> invalidPass = getInvalidPassData();
         for (InvalidPass invalidPass1 : invalidPass) {

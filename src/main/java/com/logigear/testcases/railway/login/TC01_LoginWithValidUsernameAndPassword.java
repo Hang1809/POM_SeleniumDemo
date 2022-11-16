@@ -2,6 +2,7 @@ package com.logigear.testcases.railway.login;
 
 import com.logigear.common.Constant;
 import com.logigear.common.Log;
+import com.logigear.common.PropertiesFile;
 import com.logigear.common.Utilities;
 import com.logigear.pagesObjects.HomePage;
 import com.logigear.pagesObjects.LoginPage;
@@ -20,7 +21,7 @@ public class TC01_LoginWithValidUsernameAndPassword extends BaseTest {
         Log.info("Step2: Click on 'Login' tab");
         homePage.goToLoginPage();
         Log.info("Step3: Enter valid Email and Password ");
-        loginPage.fillDataLogin(Constant.USERNAME, Constant.PASSWORD);
+        loginPage.fillDataLogin(Constant.USERNAME, PropertiesFile.getPropValue("password"));
 
         String actualMsg = loginPage.getWelcomeMessage();
         String expectedMsg = "Welcome " + Constant.USERNAME;

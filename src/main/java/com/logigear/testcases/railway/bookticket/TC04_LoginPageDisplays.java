@@ -8,7 +8,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TC04_LoginPageDisplays extends BaseTest {
-
     LoginPage loginPage = new LoginPage();
     BookTicketPage bookTicketPage = new BookTicketPage();
 
@@ -24,5 +23,4 @@ public class TC04_LoginPageDisplays extends BaseTest {
 
         Assert.assertEquals(actualMsg,expectedMsg,"Success message is not displayed as expected");
     }
-
 }

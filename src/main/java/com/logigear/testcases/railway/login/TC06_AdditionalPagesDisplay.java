@@ -2,6 +2,7 @@ package com.logigear.testcases.railway.login;
 
 import com.logigear.common.Constant;
 import com.logigear.common.Log;
+import com.logigear.common.PropertiesFile;
 import com.logigear.dataObjects.invalidPass.InvalidPassService;
 import com.logigear.pagesObjects.HomePage;
 import com.logigear.pagesObjects.LoginPage;
@@ -25,7 +26,7 @@ public class TC06_AdditionalPagesDisplay extends BaseTest {
         Log.info("Step2: Click on 'Login' tab");
         homePage.goToLoginPage();
         Log.info("Step3: Login with valid account");
-        loginPage.fillDataLogin(Constant.USERNAME, Constant.PASSWORD);
+        loginPage.fillDataLogin(Constant.USERNAME, PropertiesFile.getPropValue("password"));
         Log.info("Click 'Change password' tab, user will be directed to Change password page");
         loginPage.goToChangePasswordPage();
         Log.info("Click 'My ticket' tab, user will be directed to My ticket page");

@@ -1,6 +1,7 @@
 package com.logigear.testcases.railway.myticket;
 
 import com.logigear.common.Constant;
+import com.logigear.common.PropertiesFile;
 import com.logigear.pagesObjects.LoginPage;
 import com.logigear.pagesObjects.MyTicketPage;
 import com.logigear.testcases.railway.BaseTest;
@@ -15,7 +16,7 @@ public class TC17_UserCanFilterTicket extends BaseTest {
         System.out.println("User can filter ticket with valid data : depart station, arrive station, status");
 
         loginPage.goToLoginPage();
-        loginPage.fillDataLogin(Constant.USERNAME, Constant.PASSWORD);
+        loginPage.fillDataLogin(Constant.USERNAME, PropertiesFile.getPropValue("password"));
         myTicketPage.goToMyTicketPage();
         myTicketPage.filterTicket("2","3","","1");
 

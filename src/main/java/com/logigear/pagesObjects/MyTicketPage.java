@@ -16,7 +16,6 @@ public class MyTicketPage extends GeneralPage {
     private By filterStatus = By.xpath("//select[@name='FilterStatus']");
     private By btnFilter = By.xpath("//input[@type='submit' and @value='Apply Filter']");
     private String btnCancelWithRowNumber = "//td[.='%s']/..//input[@type='button' and @value='Cancel' or @value='Delete']";
-
     public WebElement getBtnCancelWithRow(String rowNumber){
         return Constant.WEBDRIVER.findElement(By.xpath(String.format(btnCancelWithRowNumber,rowNumber)));
     }
@@ -49,10 +48,10 @@ public class MyTicketPage extends GeneralPage {
         getBtnFilter().click();
     }
     public void cancelTicketByStringRow(String rowNumber){
-        Utilities.scrollToElementInFireFox();
-        //Utilities.scrollToElement(getLink());
+        Utilities.scrollToElement(getLink());
         getBtnCancelWithRow(rowNumber).click();
     }
+
     public void acceptAlert(){
         Constant.WEBDRIVER.switchTo().alert().accept();
     }
