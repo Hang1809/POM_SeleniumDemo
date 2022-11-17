@@ -26,5 +26,4 @@ public class TC07_UserCanCreateNewAccount extends BaseTest {
 
         Assert.assertEquals(actualMsg, expectedMsg, "Success message is not displayed as expected");
     }
-
 }

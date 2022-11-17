@@ -11,6 +11,8 @@ import com.logigear.testcases.railway.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class TC14_UserCanBook1Ticket extends BaseTest {
 
     HomePage homePage = new HomePage();
@@ -19,7 +21,7 @@ public class TC14_UserCanBook1Ticket extends BaseTest {
 
     @Test
     public void TC14(){
-        Log.info("User can book 1 ticket at a time");
+        Log.info("TC14_User can book 1 ticket at a time");
         Log.info("Step1: Navigate to QA Railway Website");
         Log.info("Step2: Login with a valid account ");
         homePage.goToLoginPage();
@@ -30,12 +32,19 @@ public class TC14_UserCanBook1Ticket extends BaseTest {
         Log.info("Step5: Select \"Sài Gòn\" for \"Depart from\" and \"Nha Trang\" for \"Arrive at\". ");
         Log.info("Step6: Select \"Soft bed with air conditioner\" for \"Seat type\"");
         Log.info("Step7: Select \"1\" for \"Ticket amount\"");
-        bookTicketPage.bookTicket("1","Sài Gòn","Nha Trang","1","Soft bed with air conditioner");
+        bookTicketPage.bookTicket(Constant.DEPART_DATE,"Sài Gòn","Nha Trang","1","Soft bed with air conditioner");
+        List<String> listInfoBooking = bookTicketPage. getInfoBooking();
+        Log.info("Step8: Click on \"Book ticket\" button");
+        bookTicketPage.clickBtnBookTicket();
+        List<String> listInfoTicket = bookTicketPage.getDataTicket();
 
         String actualMsg = bookTicketPage.getSuccessBookingMsg();
         String expectedMsg = "Ticket Booked Successfully!";
 
         Assert.assertEquals(actualMsg, expectedMsg, "Success message is not displayed as expected");
+        for(int i = 0;i<listInfoBooking.size();i++){
+            Assert.assertEquals(listInfoBooking.get(i),listInfoTicket.get(i),"Ticket information display incorrectly ");
+        }
     }
 
 }

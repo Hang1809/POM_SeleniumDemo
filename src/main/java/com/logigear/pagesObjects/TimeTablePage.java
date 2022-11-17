@@ -6,13 +6,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class TimeTablePage extends GeneralPage{
-    private String linkBookTicketWithRow = "//tr[td[count(//table//tr/th[.='No']/preceding-sibling::th)+1][.='%s']]/td[count(//th[text()='Book ticket']/preceding::th)+1]";
-    ////td[text()='Huế']/following-sibling::td[text()='Sài Gòn']/..//a[text()='book ticket']
-    public WebElement getLinkBookTicketWithRow(String rowNumber){
-        return Constant.WEBDRIVER.findElement(By.xpath(String.format(linkBookTicketWithRow,rowNumber)));
+    private String linkBookTicketByString ="//td[text()='%s']/following-sibling::td[text()='%s']/..//a[text()='book ticket']";
+    private WebElement getLinkBookTicketByString(String dptStation, String arrStation){
+        return Constant.WEBDRIVER.findElement(By.xpath(String.format(linkBookTicketByString,dptStation,arrStation)));
     }
-    public void clickLinkTicketWithRow(String rowNumber){
+    public void clickLinkBookTicketByString(String dptStation, String arrStation){
         Utilities.scrollToElement(getLink());
-        getLinkBookTicketWithRow(rowNumber).click();
+        getLinkBookTicketByString(dptStation,arrStation).click();
     }
+
 }

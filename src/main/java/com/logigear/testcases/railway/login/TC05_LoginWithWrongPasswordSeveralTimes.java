@@ -22,6 +22,7 @@ public class TC05_LoginWithWrongPasswordSeveralTimes extends BaseTest {
         Log.info("Step2: Click on 'Login' tab");
         homePage.goToLoginPage();
         Log.info("Step3: Enter valid information into 'Username' textbox except 'Password' textbox.");
+
         String actualMsg ="";
         String expectedMsg = "Invalid username or password. Please try again.";
         for (int i =0; i<=3; i++){

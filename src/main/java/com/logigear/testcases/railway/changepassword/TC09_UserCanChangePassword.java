@@ -32,7 +32,7 @@ public class TC09_UserCanChangePassword extends BaseTest {
         String actualMsg = changePasswordPage.getLblSuccessChangPassMsg();
         String expectedMsg ="Your password has been updated!" ;
 
-        Assert.assertEquals(actualMsg, expectedMsg, "Welcome message is not displayed as expected");
+        Assert.assertEquals(actualMsg, expectedMsg, "Test cas");
 
     }
 }

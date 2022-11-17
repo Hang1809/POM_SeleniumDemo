@@ -9,4 +9,6 @@ public class Constant {
     public static final String REGISTER_USERNAME = "hang"+(int)(Math.random()*1000)+"@gmail.com";
     public static final String PASSWORD ="12345678";
     public static final String PID ="12345678";
+
+    public static final String DEPART_DATE = String.valueOf((int)(Math.random()*27+4));
 }

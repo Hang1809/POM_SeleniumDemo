@@ -15,17 +15,17 @@ public class LoginPage extends GeneralPage {
 
 
     //Elements
-    public WebElement getTxtUsername() {
+    private WebElement getTxtUsername() {
         return Constant.WEBDRIVER.findElement(txtUsername);
     }
 
-    public WebElement getTxtPassword() {
+    private WebElement getTxtPassword() {
         return Constant.WEBDRIVER.findElement(txtPassword);
     }
 
-    public WebElement getBtnLogin() {return Constant.WEBDRIVER.findElement(btnLogin);}
+    private WebElement getBtnLogin() {return Constant.WEBDRIVER.findElement(btnLogin);}
 
-    public WebElement getLblLoginErrorMsg() {
+    private WebElement getLblLoginErrorMsg() {
         return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
     }
 

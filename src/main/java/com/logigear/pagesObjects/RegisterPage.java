@@ -20,35 +20,35 @@ public class RegisterPage extends GeneralPage {
     private final By blInvalidErrorMsg = By.xpath("//label[@class='validation-error']");
 
     //Elements
-    public WebElement getTxtUsername() {
+    private WebElement getTxtUsername() {
         return Constant.WEBDRIVER.findElement(txtUsername);
     }
 
-    public WebElement getTxtPassword() {
+    private WebElement getTxtPassword() {
         return Constant.WEBDRIVER.findElement(txtPassword);
     }
 
-    public WebElement getTxtConfirmPass() {
+    private WebElement getTxtConfirmPass() {
         return Constant.WEBDRIVER.findElement(txtConfirmPass);
     }
 
-    public WebElement getTxtPID() {
+    private WebElement getTxtPID() {
         return Constant.WEBDRIVER.findElement(txtPID);
     }
 
-    public WebElement getBtnRegister() {
+    private WebElement getBtnRegister() {
         return Constant.WEBDRIVER.findElement(btnRegister);
     }
 
-    public WebElement getLblRegisterErrorMsg() {
+    private WebElement getLblRegisterErrorMsg() {
         return Constant.WEBDRIVER.findElement(lblRegisterErrorMsg);
     }
 
-    public WebElement getLblInvalidErrorMsg() {
+    private WebElement getLblInvalidErrorMsg() {
         return Constant.WEBDRIVER.findElement(blInvalidErrorMsg);
     }
 
-    public WebElement getSuccessRegisterMsg() {
+    private WebElement getSuccessRegisterMsg() {
         return Constant.WEBDRIVER.findElement(successRegisterMsg);
     }
 

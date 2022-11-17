@@ -7,9 +7,9 @@ import com.logigear.pagesObjects.BookTicketPage;
 import com.logigear.pagesObjects.LoginPage;
 import com.logigear.pagesObjects.MyTicketPage;
 import com.logigear.testcases.railway.BaseTest;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
 
 public class TC16_UserCanCancelATicket extends BaseTest {
 
@@ -17,7 +17,8 @@ public class TC16_UserCanCancelATicket extends BaseTest {
     MyTicketPage myTicketPage = new MyTicketPage();
     BookTicketPage bookTicketPage = new BookTicketPage();
 
-    @Test public void TC16(){
+    @Test public void TC16() {
+        String rowNumber ="1";
         Log.info("User can cancel a ticket");
         Log.info("Step1. Navigate to QA Railway Website");
         loginPage.goToLoginPage();
@@ -25,13 +26,14 @@ public class TC16_UserCanCancelATicket extends BaseTest {
         loginPage.fillDataLogin(Constant.USERNAME, PropertiesFile.getPropValue("password"));
         Log.info("Step3: Book a ticket");
         myTicketPage.goToBookTicketPage();
-        bookTicketPage.bookTicket("1","Sài Gòn","Nha Trang","1","Hard seat");
+        bookTicketPage.bookTicket(Constant.DEPART_DATE,"Sài Gòn","Nha Trang","1","Hard seat");
         Log.info("Step4: Click on 'My ticket' tab");
         loginPage.goToMyTicketPage();
         Log.info("Step5: Click on 'Cancel' button of ticket which user want to cancel");
-        myTicketPage.cancelTicketByStringRow("2");
+        myTicketPage.cancelTicketByStringRow(rowNumber);
         Log.info("Step6: Click on 'OK' button on Confirmation message 'Are you sure?'");
         myTicketPage.acceptAlert();
-
+        Log.info("The canceled ticket is disappeared.");
+        Log.info(myTicketPage.checkTicketDisappear(rowNumber));
     }
 }

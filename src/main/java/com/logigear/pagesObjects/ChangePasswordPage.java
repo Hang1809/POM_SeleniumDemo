@@ -13,16 +13,16 @@ public class ChangePasswordPage extends GeneralPage {
     private final By txtConfirmPass = By.xpath("//input[@id='confirmPassword']");
     private final By btnChangePass = By.xpath("//input[@type='submit' and @value='Change Password']");
     private final By lblSuccessChangePass = By.xpath("//p[@class='message success']");
-    public WebElement getCurrentPass(){
+    private WebElement getCurrentPass(){
         return Constant.WEBDRIVER.findElement(txtCurrentPass);
     }
-    public WebElement getNewPass(){
+    private WebElement getNewPass(){
         return Constant.WEBDRIVER.findElement(txtNewPass);
     }
-    public WebElement getConfirmPass(){
+    private WebElement getConfirmPass(){
         return Constant.WEBDRIVER.findElement(txtConfirmPass);
     }
-    public WebElement getBtnChangePass(){
+    private WebElement getBtnChangePass(){
         return Constant.WEBDRIVER.findElement(btnChangePass);
     }
     public String getLblSuccessChangPassMsg(){
