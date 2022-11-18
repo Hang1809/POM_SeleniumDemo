@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 public class RegisterPage extends GeneralPage {
 
     //Locators
+    public static final String REGISTER_USERNAME = "hang"+(int)(Math.random()*1000)+"@gmail.com";
     private final By txtUsername = By.xpath("//input[@id='email']");
     private final By txtPassword = By.xpath("//input[@id='password']");
     private final By txtConfirmPass = By.xpath("//input[@id='confirmPassword']");
@@ -58,7 +59,6 @@ public class RegisterPage extends GeneralPage {
         getTxtConfirmPass().sendKeys(confirmPassword);
         getTxtPID().sendKeys(pID);
         Utilities.scrollToElementInFireFox();
-        //Utilities.scrollToElement(getLink());
         Log.info("Click on 'Register' button");
         getBtnRegister().click();
 

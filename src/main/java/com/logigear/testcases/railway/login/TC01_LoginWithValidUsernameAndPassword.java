@@ -22,6 +22,8 @@ public class TC01_LoginWithValidUsernameAndPassword extends BaseTest {
         homePage.goToLoginPage();
         Log.info("Step3: Enter valid Email and Password ");
         loginPage.fillDataLogin(Constant.USERNAME, PropertiesFile.getPropValue("password"));
+        Log.info("Step4: Click on 'Login' button");
+        loginPage.clickBtnLogin();
 
         String actualMsg = loginPage.getWelcomeMessage();
         String expectedMsg = "Welcome " + Constant.USERNAME;

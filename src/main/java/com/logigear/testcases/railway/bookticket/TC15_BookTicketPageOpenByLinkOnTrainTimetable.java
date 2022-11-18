@@ -25,6 +25,7 @@ public class TC15_BookTicketPageOpenByLinkOnTrainTimetable extends BaseTest {
         loginPage.goToLoginPage();
         Log.info("Step2. Login with a valid account");
         loginPage.fillDataLogin(Constant.USERNAME, PropertiesFile.getPropValue("password"));
+        loginPage.clickBtnLogin();
         Log.info("Step3. Click on 'Timetable' tab");
         homePage.goToTimeTablePage();
         Log.info("Step4: Click on 'book ticket' link of the route from 'Huế' to 'Sài Gòn' ");

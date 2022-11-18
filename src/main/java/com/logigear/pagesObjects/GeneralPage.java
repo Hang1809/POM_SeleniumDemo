@@ -14,8 +14,8 @@ public class GeneralPage {
     private final By tabBookTicket = By.xpath("//div[@id='menu']//a[@href='/Page/BookTicketPage.cshtml']");
     private final By tabMyTicket = By.xpath("//div[@id='menu']//a[@href='/Page/ManageTicket.cshtml']");
     private final By tabChangePassword = By.xpath("//div[@id='menu']//a[@href='/Account/ChangePassword.cshtml']");
-    private final By tabTimeTable = By.xpath("//div[@id=\"menu\"]//a[@href='TrainTimeListPage.cshtml']");
-    private final By link = By.xpath("//center/a[contains(text(),'Somee.com')]");
+    private final By tabTimeTable = By.xpath("//div[@id='menu']//a[@href='TrainTimeListPage.cshtml']");
+    private static final By link = By.xpath("//center/a[contains(text(),'Somee.com')]");
 
 
     //Elements
@@ -47,7 +47,7 @@ public class GeneralPage {
         return Constant.WEBDRIVER.findElement(tabTimeTable);
     }
 
-    protected WebElement getLink() {
+    protected static WebElement getLink() {
         return Constant.WEBDRIVER.findElement(link);
     }
 

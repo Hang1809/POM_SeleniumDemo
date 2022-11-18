@@ -65,9 +65,6 @@ public class MyTicketPage extends GeneralPage {
         getBtnCancelWithRow(rowNumber).click();
     }
 
-    public void acceptAlert() {
-        Constant.WEBDRIVER.switchTo().alert().accept();
-    }
     public boolean checkTicketDisappear(String id){
         try {
             WebElement rowSelected = getRowNumberSelected(id);

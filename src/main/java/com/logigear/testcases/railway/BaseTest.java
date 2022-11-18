@@ -2,12 +2,11 @@ package com.logigear.testcases.railway;
 
 import com.logigear.common.*;
 import org.apache.log4j.xml.DOMConfigurator;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 
-import java.util.concurrent.TimeUnit;
+
 
 public class BaseTest {
 
@@ -17,7 +16,7 @@ public class BaseTest {
                 initChromeDriver();
                 break;
             case "firefox":
-                initFirefoxDrive();
+                initFirefoxDriver();
                 break;
         }
     }
@@ -25,18 +24,17 @@ public class BaseTest {
         System.setProperty("webdriver.chrome.driver", Utilities.getProjectPath() + "\\executables\\chromedriver.exe");
         Constant.WEBDRIVER = new ChromeDriver();
     }
-    private static void initFirefoxDrive(){
+    private static void initFirefoxDriver(){
         System.setProperty("webdriver.gecko.driver", Utilities.getProjectPath() + "\\executables\\geckodriver.exe");
         Constant.WEBDRIVER = new FirefoxDriver();
     }
     @BeforeMethod
-    @Parameters("browser")
-    public void beforeMethod(@Optional("chrome") String browser) {
-        setBrowser("chrome");
-        maximizeWindow();
-        System.out.println("Pre-condition:");
-        DriverManager.open();
+    public void beforeMethod() {
         PropertiesFile.setPropertiesFile();
+        setBrowser(PropertiesFile.getPropValue("browser"));
+        maximizeWindow();
+        DriverManager.open();
+        System.out.println("Pre-condition:");
         DOMConfigurator.configure(Utilities.getProjectPath()+"\\configs\\log4j.xml");
     }
     public void maximizeWindow(){

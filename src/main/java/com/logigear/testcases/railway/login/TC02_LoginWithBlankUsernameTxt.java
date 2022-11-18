@@ -23,6 +23,8 @@ public class TC02_LoginWithBlankUsernameTxt extends BaseTest {
         homePage.goToLoginPage();
         Log.info("Step3: User doesn't type any words into 'Username' textbox but enter valid information into 'Password' textbox ");
         loginPage.fillDataLogin("", PropertiesFile.getPropValue("password"));
+        Log.info("Step4: Click on 'Login' button");
+        loginPage.clickBtnLogin();
 
         String actualMsg = loginPage.getLblLoginErrorMsgTxt();
         String expectedMsg = "There was a problem with your login and/or errors exist in your form.";

@@ -19,7 +19,7 @@ public class TC07_UserCanCreateNewAccount extends BaseTest {
         Log.info("Step2. Click on 'Register' tab");
         homePage.goToRegisterPage();
         Log.info("Step3. Enter valid information into all fields");
-        registerPage.register(Constant.REGISTER_USERNAME, Constant.PASSWORD, Constant.PASSWORD, Constant.PID);
+        registerPage.register(RegisterPage.REGISTER_USERNAME, Constant.PASSWORD, Constant.PASSWORD, Constant.PID);
 
         String actualMsg = registerPage.getSuccessRegisterMsgTxt();
         String expectedMsg = "You're here";

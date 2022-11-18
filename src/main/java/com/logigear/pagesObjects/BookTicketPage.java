@@ -17,7 +17,6 @@ public class BookTicketPage extends GeneralPage {
     private By ddlSeatType = By.xpath("//select[@name='SeatType']");
     private By ddlTicketAmount = By.xpath("//select[@name='TicketAmount']");
     private By btnBookTicket = By.xpath("//input[@type='submit' and @value='Book ticket']");
-
     private By dblDate = By.xpath("//table//td[count(//th[.='Depart Date']/preceding-sibling::th)+1]");
     private By dblDepartStation = By.xpath("//table//td[count(//th[.='Depart Station']/preceding-sibling::th)+1]");
     private By dblArriveStation = By.xpath("//table//td[count(//th[.='Arrive Station']/preceding-sibling::th)+1]");

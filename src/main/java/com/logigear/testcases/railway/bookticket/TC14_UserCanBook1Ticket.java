@@ -3,10 +3,8 @@ package com.logigear.testcases.railway.bookticket;
 import com.logigear.common.Constant;
 import com.logigear.common.Log;
 import com.logigear.common.PropertiesFile;
-import com.logigear.pagesObjects.BookTicketPage;
-import com.logigear.pagesObjects.HomePage;
-import com.logigear.pagesObjects.LoginPage;
-import com.logigear.pagesObjects.MyTicketPage;
+import com.logigear.common.Utilities;
+import com.logigear.pagesObjects.*;
 import com.logigear.testcases.railway.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -14,7 +12,6 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class TC14_UserCanBook1Ticket extends BaseTest {
-
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
     BookTicketPage bookTicketPage = new BookTicketPage();
@@ -26,6 +23,7 @@ public class TC14_UserCanBook1Ticket extends BaseTest {
         Log.info("Step2: Login with a valid account ");
         homePage.goToLoginPage();
         loginPage.fillDataLogin(Constant.USERNAME, PropertiesFile.getPropValue("password"));
+        loginPage.clickBtnLogin();
         Log.info("Step3: Click on 'Book ticket' tab ");
         bookTicketPage.goToBookTicketPage();
         Log.info("Step4: Select a \"Depart date\" from the list");

@@ -23,7 +23,8 @@ public class TC09_UserCanChangePassword extends BaseTest {
         homePage.goToLoginPage();
         Log.info("Step2: Login with valid account");
         loginPage.fillDataLogin(PropertiesFile.getPropValue("username"),PropertiesFile.getPropValue("password"));
-        Log.info("Step3: Click on \"Change Password\" tab");
+        loginPage.clickBtnLogin();
+        Log.info("Step3: Click on 'Change Password' tab");
         loginPage.goToChangePasswordPage();
         Log.info("Step4: Enter valid value into all fields.");
         changePasswordPage.changePassword(PropertiesFile.getPropValue("password"),newPass,newPass);
@@ -32,7 +33,7 @@ public class TC09_UserCanChangePassword extends BaseTest {
         String actualMsg = changePasswordPage.getLblSuccessChangPassMsg();
         String expectedMsg ="Your password has been updated!" ;
 
-        Assert.assertEquals(actualMsg, expectedMsg, "Test cas");
+        Assert.assertEquals(actualMsg, expectedMsg, "Change password isn't successfully");
 
     }
 }

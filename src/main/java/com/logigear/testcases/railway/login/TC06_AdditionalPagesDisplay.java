@@ -27,6 +27,8 @@ public class TC06_AdditionalPagesDisplay extends BaseTest {
         homePage.goToLoginPage();
         Log.info("Step3: Login with valid account");
         loginPage.fillDataLogin(Constant.USERNAME, PropertiesFile.getPropValue("password"));
+        Log.info("Step4: Click on 'Login' button");
+        loginPage.clickBtnLogin();
         Log.info("Click 'Change password' tab, user will be directed to Change password page");
         loginPage.goToChangePasswordPage();
         Log.info("Click 'My ticket' tab, user will be directed to My ticket page");

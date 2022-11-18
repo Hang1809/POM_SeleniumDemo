@@ -20,7 +20,7 @@ public class TC10_RegisterWithMismatchPasswordAndConfirmPassword extends BaseTes
         Log.info("Step2. Click on 'Register' tab");
         homePage.goToRegisterPage();
         Log.info("Step3. Enter valid information into all fields except 'Confirm password' is not the same with 'Password'");
-        registerPage.register(Constant.REGISTER_USERNAME,Constant.PASSWORD,"abc",Constant.PID);
+        registerPage.register(RegisterPage.REGISTER_USERNAME,Constant.PASSWORD,"abc",Constant.PID);
 
         String actualMsg = registerPage.getLblInvalidErrorMsgTxt();
         String expectedMsg = "The two passwords do not match";

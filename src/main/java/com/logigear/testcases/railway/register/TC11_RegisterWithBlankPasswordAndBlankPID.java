@@ -18,7 +18,7 @@ public class TC11_RegisterWithBlankPasswordAndBlankPID extends BaseTest {
         Log.info("Step2. Click on 'Register' tab");
         homePage.goToRegisterPage();
         Log.info("Step3. Enter valid email address and leave other fields empty");
-        registerPage.register(Constant.REGISTER_USERNAME, "","","");
+        registerPage.register(RegisterPage.REGISTER_USERNAME, "","","");
 
         String actualMsg = registerPage.getLblRegisterErrorMsgTxt();
         String expectedMsg = "There're errors in the form. Please correct the errors and try again.";
