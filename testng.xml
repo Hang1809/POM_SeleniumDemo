@@ -54,11 +54,6 @@
                     <include name="TC16"/>
                 </methods>
             </class>
-            <class name="com.logigear.testcases.railway.myticket.TC17_UserCanFilterTicket">
-                <methods>
-                    <include name="TC15"/>
-                </methods>
-            </class>
             <class name="com.logigear.testcases.railway.register.TC07_UserCanCreateNewAccount">
                 <methods>
                     <include name="TC07"/>

@@ -3,7 +3,6 @@ package com.logigear.testcases.railway.bookticket;
 import com.logigear.common.Constant;
 import com.logigear.common.Log;
 import com.logigear.common.PropertiesFile;
-import com.logigear.common.Utilities;
 import com.logigear.pagesObjects.*;
 import com.logigear.testcases.railway.BaseTest;
 import org.testng.Assert;
@@ -36,7 +35,7 @@ public class TC14_UserCanBook1Ticket extends BaseTest {
         bookTicketPage.clickBtnBookTicket();
         List<String> listInfoTicket = bookTicketPage.getDataTicket();
 
-        String actualMsg = bookTicketPage.getSuccessBookingMsg();
+        String actualMsg = bookTicketPage.getLblSuccessBookingMsg();
         String expectedMsg = "Ticket Booked Successfully!";
 
         Assert.assertEquals(actualMsg, expectedMsg, "Success message is not displayed as expected");
