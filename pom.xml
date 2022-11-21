@@ -7,7 +7,9 @@
     <groupId>org.example</groupId>
     <artifactId>PageObjectDemo</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <dependencies>
+
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
