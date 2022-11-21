@@ -1,7 +1,6 @@
 package com.logigear.pagesObjects;
 
 import com.logigear.common.Constant;
-import com.logigear.common.Log;
 import com.logigear.common.Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -16,17 +15,17 @@ public class LoginPage extends GeneralPage {
 
 
     //Elements
-    public WebElement getTxtUsername() {
+    private WebElement getTxtUsername() {
         return Constant.WEBDRIVER.findElement(txtUsername);
     }
 
-    public WebElement getTxtPassword() {
+    private WebElement getTxtPassword() {
         return Constant.WEBDRIVER.findElement(txtPassword);
     }
 
-    public WebElement getBtnLogin() {return Constant.WEBDRIVER.findElement(btnLogin);}
+    private WebElement getBtnLogin() {return Constant.WEBDRIVER.findElement(btnLogin);}
 
-    public WebElement getLblLoginErrorMsg() {
+    private WebElement getLblLoginErrorMsg() {
         return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
     }
 
@@ -34,6 +33,8 @@ public class LoginPage extends GeneralPage {
         getTxtUsername().sendKeys(username);
         getTxtPassword().sendKeys(password);
         Utilities.scrollToElementInFireFox();
+    }
+    public void clickBtnLogin(){
         getBtnLogin().click();
     }
 

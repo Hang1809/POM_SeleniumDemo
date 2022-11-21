@@ -6,7 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import java.sql.Driver;
+import java.util.List;
+import java.util.NoSuchElementException;
 
 public class MyTicketPage extends GeneralPage {
     private By titleMyTicketPage = By.xpath("//h1[contains(text(),'Manage Tickets')]");
@@ -16,28 +17,38 @@ public class MyTicketPage extends GeneralPage {
     private By filterStatus = By.xpath("//select[@name='FilterStatus']");
     private By btnFilter = By.xpath("//input[@type='submit' and @value='Apply Filter']");
     private String btnCancelWithRowNumber = "//td[.='%s']/..//input[@type='button' and @value='Cancel' or @value='Delete']";
-
-    public WebElement getBtnCancelWithRow(String rowNumber){
-        return Constant.WEBDRIVER.findElement(By.xpath(String.format(btnCancelWithRowNumber,rowNumber)));
+    private String rowNumberSelected= "//input[@onclick='%s']";
+    private WebElement getRowNumberSelected(String id){
+        return Constant.WEBDRIVER.findElement(By.xpath(String.format(rowNumberSelected,id)));
     }
-    public WebElement getFilterDptStation(){
+    private WebElement getBtnCancelWithRow(String rowNumber) {
+        return Constant.WEBDRIVER.findElement(By.xpath(String.format(btnCancelWithRowNumber, rowNumber)));
+    }
+    private WebElement getFilterDptStation() {
         return Constant.WEBDRIVER.findElement(filterDptStation);
     }
-    public WebElement getFilterArStation(){
+
+    private WebElement getFilterArStation() {
         return Constant.WEBDRIVER.findElement(filterArStation);
     }
-    public WebElement getFilterDptDate(){
+
+    private WebElement getFilterDptDate() {
         return Constant.WEBDRIVER.findElement(filterDptDate);
     }
-    public WebElement getFilterStatus(){
+
+    private WebElement getFilterStatus() {
         return Constant.WEBDRIVER.findElement(filterStatus);
     }
-    public WebElement getBtnFilter(){
+
+    private WebElement getBtnFilter() {
         return Constant.WEBDRIVER.findElement(btnFilter);
     }
-    public String getTitleMyTicketPage(){return Constant.WEBDRIVER.findElement(titleMyTicketPage).getText();}
 
-    public void filterTicket(String departureStation,String arriveStation,String dptDate, String statusTicket){
+    public String getTitleMyTicketPage() {
+        return Constant.WEBDRIVER.findElement(titleMyTicketPage).getText();
+    }
+
+    public void filterTicket(String departureStation, String arriveStation, String dptDate, String statusTicket) {
         Utilities.scrollToElement(getLink());
         Select dptStation = new Select(getFilterDptStation());
         Select arStation = new Select(getFilterArStation());
@@ -48,13 +59,19 @@ public class MyTicketPage extends GeneralPage {
         status.selectByValue(statusTicket);
         getBtnFilter().click();
     }
-    public void cancelTicketByStringRow(String rowNumber){
-        Utilities.scrollToElementInFireFox();
-        //Utilities.scrollToElement(getLink());
+
+    public void cancelTicketByStringRow(String rowNumber) {
+        Utilities.scrollToElement(getLink());
         getBtnCancelWithRow(rowNumber).click();
     }
-    public void acceptAlert(){
-        Constant.WEBDRIVER.switchTo().alert().accept();
-    }
 
+    public boolean checkTicketDisappear(String id){
+        try {
+            WebElement rowSelected = getRowNumberSelected(id);
+        }
+        catch(Exception e){
+            return true;
+        }
+        return false;
+    }
 }

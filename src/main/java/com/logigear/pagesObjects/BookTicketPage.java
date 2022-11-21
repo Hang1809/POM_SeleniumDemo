@@ -7,37 +7,45 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BookTicketPage extends GeneralPage {
-    private By selectedDate = By.xpath("//select[@name='Date']");
-    private By dptFrom = By.xpath("//select[@name='DepartStation']");
-    private By arriveStation = By.xpath("//select[@name='ArriveStation']");
-    private By seatType = By.xpath("//select[@name='SeatType']");
-    private By ticketAmount = By.xpath("//select[@name='TicketAmount']");
+    private By ddlDate = By.xpath("//select[@name='Date']");
+    private By ddlDepartStation = By.xpath("//select[@name='DepartStation']");
+    private By ddlArriveStation = By.xpath("//select[@name='ArriveStation']");
+    private By ddlSeatType = By.xpath("//select[@name='SeatType']");
+    private By ddlTicketAmount = By.xpath("//select[@name='TicketAmount']");
     private By btnBookTicket = By.xpath("//input[@type='submit' and @value='Book ticket']");
+    private By dblDate = By.xpath("//table//td[count(//th[.='Depart Date']/preceding-sibling::th)+1]");
+    private By dblDepartStation = By.xpath("//table//td[count(//th[.='Depart Station']/preceding-sibling::th)+1]");
+    private By dblArriveStation = By.xpath("//table//td[count(//th[.='Arrive Station']/preceding-sibling::th)+1]");
+    private By dblSeatType = By.xpath("//table//td[count(//th[.='Seat Type']/preceding-sibling::th)+1]");
+    private By dblTicketAmount = By.xpath("//table//td[count(//th[.='Amount']/preceding-sibling::th)+1]");
     private By successBookingMsg = By.xpath("//h1[contains(text(),'Booked Successfully')]");
     private By errorBookingMsg = By.xpath("//p[@class='message error']");
 
-    public WebElement getSelectedDate() {
-        return Constant.WEBDRIVER.findElement(selectedDate);
+    private WebElement getDdlDate() {
+        return Constant.WEBDRIVER.findElement(ddlDate);
     }
 
-    public WebElement getSelectedDepart() {
-        return Constant.WEBDRIVER.findElement(dptFrom);
+    private WebElement getSelectedDepart() {
+        return Constant.WEBDRIVER.findElement(ddlDepartStation);
     }
 
-    public WebElement getSelectedArrive() {
-        return Constant.WEBDRIVER.findElement(arriveStation);
+    private WebElement getSelectedArrive() {
+        return Constant.WEBDRIVER.findElement(ddlArriveStation);
     }
 
-    public WebElement getSelectedTicketAmount() {
-        return Constant.WEBDRIVER.findElement(ticketAmount);
+    private WebElement getSelectedTicketAmount() {
+        return Constant.WEBDRIVER.findElement(ddlTicketAmount);
     }
 
-    public WebElement getSelectedSeatType() {
-        return Constant.WEBDRIVER.findElement(seatType);
+    private WebElement getSelectedSeatType() {
+        return Constant.WEBDRIVER.findElement(ddlSeatType);
     }
 
-    public WebElement getBtnBookTicket() {
+    private WebElement getBtnBookTicket() {
         return Constant.WEBDRIVER.findElement(btnBookTicket);
     }
 
@@ -48,21 +56,51 @@ public class BookTicketPage extends GeneralPage {
     public String getErrorBookingMsg() {
         return Constant.WEBDRIVER.findElement(errorBookingMsg).getText();
     }
+    private WebElement getDblDate(){ return Constant.WEBDRIVER.findElement(dblDate);}
+    private WebElement getDblDepartStation(){return Constant.WEBDRIVER.findElement(dblDepartStation);}
+    private WebElement getDblArriveStation(){return Constant.WEBDRIVER.findElement(dblArriveStation);}
+    private WebElement getDblSeatType(){return Constant.WEBDRIVER.findElement(dblSeatType);}
+    private WebElement getDblTicketAmount(){return Constant.WEBDRIVER.findElement(dblTicketAmount);}
 
     public void bookTicket(String departDate, String departFrom, String arrive, String ticket, String seat) {
-        Select sltDepartDate = new Select(getSelectedDate());
+        Select sltDepartDate = new Select(getDdlDate());
         Select sltDepartFrom = new Select(getSelectedDepart());
         Select sltArrive = new Select(getSelectedArrive());
         Select sltTicket = new Select(getSelectedTicketAmount());
         Select sltSeat = new Select(getSelectedSeatType());
-        Utilities.scrollToElementInFireFox();
-        //Utilities.scrollToElement(getLink());
-        sltDepartDate.selectByIndex(Integer.parseInt(departDate));
+        Utilities.scrollToElement(getLink());
+        sltDepartDate.selectByValue(departDate);
         sltDepartFrom.selectByVisibleText(departFrom);
         sltArrive.selectByVisibleText(arrive);
         sltTicket.selectByVisibleText(ticket);
         sltSeat.selectByVisibleText(seat);
-        Log.info("Step8: Click on \"Book ticket\" button");
+    }
+    public void clickBtnBookTicket(){
         getBtnBookTicket().click();
+    }
+
+    public List<String> getInfoBooking(){
+        Select sltDepartDate = new Select(getDdlDate());
+        Select sltDepartFrom = new Select(getSelectedDepart());
+        Select sltArrive = new Select(getSelectedArrive());
+        Select sltTicket = new Select(getSelectedTicketAmount());
+        Select sltSeat = new Select(getSelectedSeatType());
+        List<String> listBooked= new ArrayList<>();
+        listBooked.add(sltDepartDate.getFirstSelectedOption().getText());
+        listBooked.add(sltDepartFrom.getFirstSelectedOption().getText());
+        listBooked.add(sltArrive.getFirstSelectedOption().getText());
+        listBooked.add(sltTicket.getFirstSelectedOption().getText());
+        listBooked.add(sltSeat.getFirstSelectedOption().getText());
+        return listBooked;
+    }
+
+    public List<String> getDataTicket(){
+        List<String> listDataTicket = new ArrayList<>();
+        listDataTicket.add(getDblDate().getText());
+        listDataTicket.add(getDblDepartStation().getText());
+        listDataTicket.add(getDblArriveStation().getText());
+        listDataTicket.add(getDblTicketAmount().getText());
+        listDataTicket.add(getDblSeatType().getText());
+        return listDataTicket;
     }
 }

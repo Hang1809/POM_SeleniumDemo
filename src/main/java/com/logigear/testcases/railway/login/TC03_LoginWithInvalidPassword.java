@@ -23,10 +23,12 @@ public class TC03_LoginWithInvalidPassword extends BaseTest {
         Log.info("Step2: Click on 'Login' tab");
         homePage.goToLoginPage();
         Log.info("Step3: Enter valid Email and invalid Password ");
+
         String actualMsg = "";
         String expectedMsg = "Invalid username or password. Please try again.";
         for(int i =0; i<=4; i++) {
             loginPage.fillDataLogin(Constant.USERNAME, String.valueOf(invalidPassService.getInvalidPassById(i)));
+            loginPage.clickBtnLogin();
             actualMsg= loginPage.getLblLoginErrorMsgTxt();
             Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed correctly");
         };

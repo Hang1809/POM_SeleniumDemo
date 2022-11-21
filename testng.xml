@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <parameter name="browser" value="chrome"></parameter>
+<!--    <parameter name="browser" value="chrome"></parameter>-->
     <test verbose="2" preserve-order="true" name="E:/test/PageObjectDemo">
         <classes>
-            <class name="com.logigear.testcases.railway.bookticket.TC015_BookTicketPageOpenByLinkOnTrainTimetable">
+            <class name="com.logigear.testcases.railway.bookticket.TC15_BookTicketPageOpenByLinkOnTrainTimetable">
                 <methods>
                     <include name="TC15"/>
                 </methods>
@@ -52,11 +52,6 @@
             <class name="com.logigear.testcases.railway.myticket.TC16_UserCanCancelATicket">
                 <methods>
                     <include name="TC16"/>
-                </methods>
-            </class>
-            <class name="com.logigear.testcases.railway.myticket.TC17_UserCanFilterTicket">
-                <methods>
-                    <include name="TC15"/>
                 </methods>
             </class>
             <class name="com.logigear.testcases.railway.register.TC07_UserCanCreateNewAccount">

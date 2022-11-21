@@ -2,6 +2,7 @@ package com.logigear.testcases.railway.changepassword;
 
 import com.logigear.common.Constant;
 import com.logigear.common.Log;
+import com.logigear.common.PropertiesFile;
 import com.logigear.pagesObjects.ChangePasswordPage;
 import com.logigear.pagesObjects.HomePage;
 import com.logigear.pagesObjects.LoginPage;
@@ -16,22 +17,23 @@ public class TC09_UserCanChangePassword extends BaseTest {
 
     @Test
     public void TC09(){
-        //not finished yettttttt
-        String newPass ="123456789";
+        String newPass =Constant.PASSWORD + (int)(Math.random()*10);
         System.out.println("User can change password");
         Log.info("Step1: Navigate to QA Railway Website");
         homePage.goToLoginPage();
         Log.info("Step2: Login with valid account");
-        loginPage.fillDataLogin(Constant.USERNAME, Constant.PASSWORD);
-        Log.info("Step3: Click on \"Change Password\" tab");
+        loginPage.fillDataLogin(PropertiesFile.getPropValue("username"),PropertiesFile.getPropValue("password"));
+        loginPage.clickBtnLogin();
+        Log.info("Step3: Click on 'Change Password' tab");
         loginPage.goToChangePasswordPage();
         Log.info("Step4: Enter valid value into all fields.");
-        changePasswordPage.changePassword(Constant.PASSWORD,newPass,newPass);
+        changePasswordPage.changePassword(PropertiesFile.getPropValue("password"),newPass,newPass);
+        PropertiesFile.setPropValue("password",newPass);
 
         String actualMsg = changePasswordPage.getLblSuccessChangPassMsg();
         String expectedMsg ="Your password has been updated!" ;
 
-        Assert.assertEquals(actualMsg, expectedMsg, "Welcome message is not displayed as expected");
+        Assert.assertEquals(actualMsg, expectedMsg, "Change password isn't successfully");
 
     }
 }
