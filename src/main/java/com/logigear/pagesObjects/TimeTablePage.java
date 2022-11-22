@@ -10,7 +10,7 @@ public class TimeTablePage extends GeneralPage{
     private WebElement getLinkBookTicketByString(String dptStation, String arrStation){
         return Constant.WEBDRIVER.findElement(By.xpath(String.format(linkBookTicketByString,dptStation,arrStation)));
     }
-    public void clickLinkBookTicketByString(String dptStation, String arrStation){
+    public void                                                                                                                                                                                                       clickLinkBookTicketByString(String dptStation, String arrStation){
         Utilities.scrollToElement(getLink());
         getLinkBookTicketByString(dptStation,arrStation).click();
     }

@@ -10,6 +10,7 @@ public class InvalidPass {
     }
 
     public InvalidPass() {}
+
     public InvalidPass(String record) {
         String[] invalidDataPass = record.split(",");
         this.id= Integer.parseInt(invalidDataPass[0]);

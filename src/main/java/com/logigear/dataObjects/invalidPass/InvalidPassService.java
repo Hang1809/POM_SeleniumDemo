@@ -14,6 +14,7 @@ public class InvalidPassService {
                 invalidPass.add(new InvalidPass(record));
         }
         return invalidPass;
+
     }
     public InvalidPass getInvalidPassById(int id) {
         List<InvalidPass> invalidPass = getInvalidPassData();

@@ -31,7 +31,6 @@ public class ChangePasswordPage extends GeneralPage {
 
     public void changePassword(String currentPass,String newPass, String confirmPass){
         PropertiesFile.setPropertiesFile();
-        PropertiesFile.setPropValue("newPass","12345678");
         getCurrentPass().sendKeys(currentPass);
         getNewPass().sendKeys(newPass);
         getConfirmPass().sendKeys(confirmPass);

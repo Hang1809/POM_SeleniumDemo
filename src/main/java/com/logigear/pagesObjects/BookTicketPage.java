@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookTicketPage extends GeneralPage {
+    public static final String DEPART_DATE = String.valueOf((int)(Math.random()*27+4));
     private By ddlDate = By.xpath("//select[@name='Date']");
     private By ddlDepartStation = By.xpath("//select[@name='DepartStation']");
     private By ddlArriveStation = By.xpath("//select[@name='ArriveStation']");
