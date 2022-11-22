@@ -5,7 +5,6 @@ import com.logigear.common.Log;
 import com.logigear.dataObjects.invalidPass.InvalidPassService;
 import com.logigear.pagesObjects.HomePage;
 import com.logigear.pagesObjects.LoginPage;
-import com.logigear.pagesObjects.MyTicketPage;
 import com.logigear.testcases.railway.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -24,13 +23,13 @@ public class TC03_LoginWithInvalidPassword extends BaseTest {
         homePage.goToLoginPage();
         Log.info("Step3: Enter valid Email and invalid Password ");
 
-        String actualMsg = "";
-        String expectedMsg = "Invalid username or password. Please try again.";
-        for(int i =0; i<=4; i++) {
-            loginPage.fillDataLogin(Constant.USERNAME, String.valueOf(invalidPassService.getInvalidPassById(i)));
+        loginPage.fillUsername(Constant.USERNAME);
+        for (int i =1; i<=4; i++){
+            loginPage.fillInvalidPassword(invalidPassService.getInvalidPassById(i).getInvalidPass());
+            System.out.println(invalidPassService.getInvalidPassById(i).getInvalidPass());
             loginPage.clickBtnLogin();
-            actualMsg= loginPage.getLblLoginErrorMsgTxt();
-            Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed correctly");
+            String actualMsg = loginPage.getLblLoginErrorMsgTxt();
+            Assert.assertEquals(actualMsg, "Invalid username or password. Please try again.", "Error message is not displayed correctly");
         };
     }
 }

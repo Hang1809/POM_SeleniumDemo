@@ -15,11 +15,11 @@ public class InvalidPassService {
         }
         return invalidPass;
     }
-    public List<InvalidPass> getInvalidPassById(int id) {
+    public InvalidPass getInvalidPassById(int id) {
         List<InvalidPass> invalidPass = getInvalidPassData();
         for (InvalidPass invalidPass1 : invalidPass) {
             if (invalidPass1.getId() == id)
-                return invalidPass;
+                return invalidPass1;
         }
         return null;
     }

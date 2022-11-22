@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 public class LoginPage extends GeneralPage {
 
+    public static final String NON_REGISTER_USERNAME = "abc"+(int)(Math.random()*10)+"@co.vn";
+
     //Locators
     private final By txtUsername = By.xpath("//input[@id='username']");
     private final By txtPassword = By.xpath("//input[@id='password']");
@@ -33,6 +35,12 @@ public class LoginPage extends GeneralPage {
         getTxtUsername().sendKeys(username);
         getTxtPassword().sendKeys(password);
         Utilities.scrollToElementInFireFox();
+    }
+    public void fillUsername(String username){
+        getTxtUsername().sendKeys(username);
+    }
+    public void fillInvalidPassword(String password){
+        getTxtPassword().sendKeys(password);
     }
     public void clickBtnLogin(){
         getBtnLogin().click();

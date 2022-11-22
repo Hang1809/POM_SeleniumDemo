@@ -23,13 +23,13 @@ public class TC05_LoginWithWrongPasswordSeveralTimes extends BaseTest {
         homePage.goToLoginPage();
         Log.info("Step3: Enter valid information into 'Username' textbox except 'Password' textbox.");
 
-        String actualMsg ="";
-        String expectedMsg = "Invalid username or password. Please try again.";
-        for (int i =0; i<=3; i++){
-            loginPage.fillDataLogin(Constant.USERNAME,String.valueOf(invalidPassService.getInvalidPassById(i)));
+        loginPage.fillUsername(Constant.USERNAME);
+        for (int i =1; i<=4; i++){
+            loginPage.fillInvalidPassword(invalidPassService.getInvalidPassById(i).getInvalidPass());
+            System.out.println(invalidPassService.getInvalidPassById(i).getInvalidPass());
             loginPage.clickBtnLogin();
-            actualMsg= loginPage.getLblLoginErrorMsgTxt();
-            Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed correctly");
+            String actualMsg= loginPage.getLblLoginErrorMsgTxt();
+            Assert.assertEquals(actualMsg, "Invalid username or password. Please try again.", "Error message is not displayed correctly");
         }
     }
 }
