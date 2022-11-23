@@ -23,7 +23,7 @@ public class BookTicketPage extends GeneralPage {
     private By dblSeatType = By.xpath("//table//td[count(//th[.='Seat Type']/preceding-sibling::th)+1]");
     private By dblTicketAmount = By.xpath("//table//td[count(//th[.='Amount']/preceding-sibling::th)+1]");
     private By lblSuccessBookingMsg = By.xpath("//h1[contains(text(),'Booked Successfully')]");
-    private By lblErrorBookingMsg = By.xpath("//p[@class='message error']");
+
 
     private WebElement getDdlDate() {
         return Constant.WEBDRIVER.findElement(ddlDate);
@@ -53,9 +53,6 @@ public class BookTicketPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(lblSuccessBookingMsg).getText();
     }
 
-    public String getLblErrorBookingMsg() {
-        return Constant.WEBDRIVER.findElement(lblErrorBookingMsg).getText();
-    }
     private WebElement getDblDate(){ return Constant.WEBDRIVER.findElement(dblDate);}
     private WebElement getDblDepartStation(){return Constant.WEBDRIVER.findElement(dblDepartStation);}
     private WebElement getDblArriveStation(){return Constant.WEBDRIVER.findElement(dblArriveStation);}

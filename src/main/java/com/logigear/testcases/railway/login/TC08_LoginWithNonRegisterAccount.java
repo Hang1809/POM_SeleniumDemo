@@ -4,6 +4,7 @@ import com.logigear.common.Constant;
 import com.logigear.common.Log;
 import com.logigear.pagesObjects.HomePage;
 import com.logigear.pagesObjects.LoginPage;
+import com.logigear.pagesObjects.RegisterPage;
 import com.logigear.testcases.railway.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -19,7 +20,7 @@ public class TC08_LoginWithNonRegisterAccount extends BaseTest {
         Log.info("Step2. Click on 'Login' tab");
         homePage.goToLoginPage();
         Log.info("Step3. Enter username and password of account hasn't been registered.");
-        loginPage.fillDataLogin(LoginPage.NON_REGISTER_USERNAME, Constant.PASSWORD);
+        loginPage.fillDataLogin(RegisterPage.NON_REGISTER_USERNAME, Constant.PASSWORD);
         Log.info("Step4. Click on 'Login' button");
         loginPage.clickBtnLogin();
 

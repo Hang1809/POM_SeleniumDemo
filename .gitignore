@@ -1,3 +1,6 @@
 .idea/
 target/
-resources/
+.gitignore/
+executables/
+lib/
+PageObjectDemo.iml/
