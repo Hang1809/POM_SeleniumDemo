@@ -38,6 +38,10 @@ public class TC16_UserCanCancelATicket extends BaseTest {
         Log.info("Step6: Click on 'OK' button on Confirmation message 'Are you sure?'");
         driverManager.acceptAlert();
         Log.info("The canceled ticket is disappeared.");
-        Log.info(myTicketPage.checkTicketDisappear(rowNumber));
+        //Log.info(myTicketPage.checkTicketDisappear("DeleteTicket(2369);"));
+
+        String expectedMsg ="true";
+        String actualMsg = String.valueOf(myTicketPage.checkTicketDisappear(rowNumber));
+        Assert.assertEquals(expectedMsg,actualMsg,"Can't cancel the ticket");
     }
 }
