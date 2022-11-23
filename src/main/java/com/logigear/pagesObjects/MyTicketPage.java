@@ -58,7 +58,7 @@ public class MyTicketPage extends GeneralPage {
     }
 
     public void cancelTicketByStringRow(String rowNumber) {
-        Utilities.scrollToElement(getLink());
+        Utilities.scrollToElementInFireFox();
         getBtnCancelWithRow(rowNumber).click();
     }
 

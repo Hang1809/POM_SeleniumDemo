@@ -41,6 +41,7 @@ public class LoginPage extends GeneralPage {
         getTxtPassword().sendKeys(password);
     }
     public void clickBtnLogin(){
+        Utilities.scrollToElementInFireFox();
         getBtnLogin().click();
     }
 

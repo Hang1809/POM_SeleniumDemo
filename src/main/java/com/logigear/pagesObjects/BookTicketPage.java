@@ -28,31 +28,24 @@ public class BookTicketPage extends GeneralPage {
     private WebElement getDdlDate() {
         return Constant.WEBDRIVER.findElement(ddlDate);
     }
-
     private WebElement getSelectedDepart() {
         return Constant.WEBDRIVER.findElement(ddlDepartStation);
     }
-
     private WebElement getSelectedArrive() {
         return Constant.WEBDRIVER.findElement(ddlArriveStation);
     }
-
     private WebElement getSelectedTicketAmount() {
         return Constant.WEBDRIVER.findElement(ddlTicketAmount);
     }
-
     private WebElement getSelectedSeatType() {
         return Constant.WEBDRIVER.findElement(ddlSeatType);
     }
-
     private WebElement getBtnBookTicket() {
         return Constant.WEBDRIVER.findElement(btnBookTicket);
     }
-
     public String getLblSuccessBookingMsg() {
         return Constant.WEBDRIVER.findElement(lblSuccessBookingMsg).getText();
     }
-
     private WebElement getDblDate(){ return Constant.WEBDRIVER.findElement(dblDate);}
     private WebElement getDblDepartStation(){return Constant.WEBDRIVER.findElement(dblDepartStation);}
     private WebElement getDblArriveStation(){return Constant.WEBDRIVER.findElement(dblArriveStation);}
@@ -60,12 +53,13 @@ public class BookTicketPage extends GeneralPage {
     private WebElement getDblTicketAmount(){return Constant.WEBDRIVER.findElement(dblTicketAmount);}
 
     public void bookTicket(String departDate, String departFrom, String arrive, String ticket, String seat) {
+        Utilities.scrollToElementInFireFox();
+        //Utilities.scrollToElement(getBtnBookTicket());
         Select sltDepartDate = new Select(getDdlDate());
         Select sltDepartFrom = new Select(getSelectedDepart());
         Select sltArrive = new Select(getSelectedArrive());
         Select sltTicket = new Select(getSelectedTicketAmount());
         Select sltSeat = new Select(getSelectedSeatType());
-        Utilities.scrollToElement(getLink());
         sltDepartDate.selectByValue(departDate);
         sltDepartFrom.selectByVisibleText(departFrom);
         sltArrive.selectByVisibleText(arrive);
