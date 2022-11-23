@@ -9,7 +9,6 @@ import org.testng.annotations.*;
 
 
 public class BaseTest {
-
     private void setBrowser(String browser){
         switch (browser){
             case "chrome":
@@ -32,8 +31,8 @@ public class BaseTest {
     public void beforeMethod() {
         PropertiesFile.setPropertiesFile();
         setBrowser(PropertiesFile.getPropValue("browser"));
-        maximizeWindow();
         DriverManager.open();
+        maximizeWindow();
         System.out.println("Pre-condition:");
         DOMConfigurator.configure(Utilities.getProjectPath()+"\\configs\\log4j.xml");
     }

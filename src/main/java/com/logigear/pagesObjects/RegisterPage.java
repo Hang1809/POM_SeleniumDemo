@@ -18,7 +18,7 @@ public class RegisterPage extends GeneralPage {
     private final By btnRegister = By.xpath("//input[@type='submit' and @value='Register']");
     private final By successRegisterMsg = By.xpath("//div[@id='content']/p[contains(text(),'here')]");
     private final By lblRegisterErrorMsg = By.xpath("//p[@class='message error']");
-    private final By blInvalidErrorMsg = By.xpath("//label[@class='validation-error']");
+    private final By lblInvalidErrorMsg = By.xpath("//label[@class='validation-error']");
 
     //Elements
     private WebElement getTxtUsername() {
@@ -46,7 +46,7 @@ public class RegisterPage extends GeneralPage {
     }
 
     private WebElement getLblInvalidErrorMsg() {
-        return Constant.WEBDRIVER.findElement(blInvalidErrorMsg);
+        return Constant.WEBDRIVER.findElement(lblInvalidErrorMsg);
     }
 
     private WebElement getSuccessRegisterMsg() {

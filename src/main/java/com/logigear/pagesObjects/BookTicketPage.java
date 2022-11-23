@@ -1,6 +1,5 @@
 package com.logigear.pagesObjects;
 
-import com.logigear.common.Log;
 import com.logigear.common.Utilities;
 import com.logigear.common.Constant;
 import org.openqa.selenium.By;
@@ -11,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookTicketPage extends GeneralPage {
+    public static final String DEPART_DATE = String.valueOf((int)(Math.random()*27+4));
     private By ddlDate = By.xpath("//select[@name='Date']");
     private By ddlDepartStation = By.xpath("//select[@name='DepartStation']");
     private By ddlArriveStation = By.xpath("//select[@name='ArriveStation']");
@@ -22,8 +22,8 @@ public class BookTicketPage extends GeneralPage {
     private By dblArriveStation = By.xpath("//table//td[count(//th[.='Arrive Station']/preceding-sibling::th)+1]");
     private By dblSeatType = By.xpath("//table//td[count(//th[.='Seat Type']/preceding-sibling::th)+1]");
     private By dblTicketAmount = By.xpath("//table//td[count(//th[.='Amount']/preceding-sibling::th)+1]");
-    private By successBookingMsg = By.xpath("//h1[contains(text(),'Booked Successfully')]");
-    private By errorBookingMsg = By.xpath("//p[@class='message error']");
+    private By lblSuccessBookingMsg = By.xpath("//h1[contains(text(),'Booked Successfully')]");
+    private By lblErrorBookingMsg = By.xpath("//p[@class='message error']");
 
     private WebElement getDdlDate() {
         return Constant.WEBDRIVER.findElement(ddlDate);
@@ -49,12 +49,12 @@ public class BookTicketPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(btnBookTicket);
     }
 
-    public String getSuccessBookingMsg() {
-        return Constant.WEBDRIVER.findElement(successBookingMsg).getText();
+    public String getLblSuccessBookingMsg() {
+        return Constant.WEBDRIVER.findElement(lblSuccessBookingMsg).getText();
     }
 
-    public String getErrorBookingMsg() {
-        return Constant.WEBDRIVER.findElement(errorBookingMsg).getText();
+    public String getLblErrorBookingMsg() {
+        return Constant.WEBDRIVER.findElement(lblErrorBookingMsg).getText();
     }
     private WebElement getDblDate(){ return Constant.WEBDRIVER.findElement(dblDate);}
     private WebElement getDblDepartStation(){return Constant.WEBDRIVER.findElement(dblDepartStation);}

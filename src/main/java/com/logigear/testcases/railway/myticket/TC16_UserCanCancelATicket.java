@@ -29,7 +29,8 @@ public class TC16_UserCanCancelATicket extends BaseTest {
         loginPage.clickBtnLogin();
         Log.info("Step3: Book a ticket");
         myTicketPage.goToBookTicketPage();
-        bookTicketPage.bookTicket(Constant.DEPART_DATE,"Sài Gòn","Nha Trang","1","Hard seat");
+        bookTicketPage.bookTicket(BookTicketPage.DEPART_DATE,"Sài Gòn","Nha Trang","1","Hard seat");
+        bookTicketPage.clickBtnBookTicket();
         Log.info("Step4: Click on 'My ticket' tab");
         loginPage.goToMyTicketPage();
         Log.info("Step5: Click on 'Cancel' button of ticket which user want to cancel");
@@ -37,6 +38,10 @@ public class TC16_UserCanCancelATicket extends BaseTest {
         Log.info("Step6: Click on 'OK' button on Confirmation message 'Are you sure?'");
         driverManager.acceptAlert();
         Log.info("The canceled ticket is disappeared.");
-        Log.info(myTicketPage.checkTicketDisappear(rowNumber));
+        //Log.info(myTicketPage.checkTicketDisappear("DeleteTicket(2369);"));
+
+        String expectedMsg ="true";
+        String actualMsg = String.valueOf(myTicketPage.checkTicketDisappear(rowNumber));
+        Assert.assertEquals(expectedMsg,actualMsg,"Can't cancel the ticket");
     }
 }
