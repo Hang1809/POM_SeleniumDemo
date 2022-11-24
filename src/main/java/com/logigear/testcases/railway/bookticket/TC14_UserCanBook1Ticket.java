@@ -25,13 +25,13 @@ public class TC14_UserCanBook1Ticket extends BaseTest {
         loginPage.clickBtnLogin();
         Log.info("Step3: Click on 'Book ticket' tab ");
         bookTicketPage.goToBookTicketPage();
-        Log.info("Step4: Select a \"Depart date\" from the list");
-        Log.info("Step5: Select \"Sài Gòn\" for \"Depart from\" and \"Nha Trang\" for \"Arrive at\". ");
-        Log.info("Step6: Select \"Soft bed with air conditioner\" for \"Seat type\"");
-        Log.info("Step7: Select \"1\" for \"Ticket amount\"");
+        Log.info("Step4: Select a 'Depart date' from the list");
+        Log.info("Step5: Select 'Sài Gòn' for 'Depart from' and 'Nha Trang' for 'Arrive at'. ");
+        Log.info("Step6: Select 'Soft bed with air conditioner' for 'Seat type'");
+        Log.info("Step7: Select '1' for 'Ticket amount'");
         bookTicketPage.bookTicket(BookTicketPage.DEPART_DATE,"Sài Gòn","Nha Trang","1","Soft bed with air conditioner");
         List<String> listInfoBooking = bookTicketPage. getInfoBooking();
-        Log.info("Step8: Click on \"Book ticket\" button");
+        Log.info("Step8: Click on 'Book ticket' button");
         bookTicketPage.clickBtnBookTicket();
         List<String> listInfoTicket = bookTicketPage.getDataTicket();
 

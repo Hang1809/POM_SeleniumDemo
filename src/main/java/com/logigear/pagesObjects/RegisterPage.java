@@ -9,8 +9,11 @@ import org.openqa.selenium.WebElement;
 
 public class RegisterPage extends GeneralPage {
 
+    public static String REGISTER_USERNAME = "hang"+(int)(Math.random()*1000)+"@gmail.com";
+    public static String REGISTERED_ACCOUNT_PATH = "data/registeredAccount.json";
+    public static String NON_REGISTER_USERNAME = "abc"+(int)(Math.random()*10)+"@co.vn";
+
     //Locators
-    public static final String REGISTER_USERNAME = "hang"+(int)(Math.random()*1000)+"@gmail.com";
     private final By txtUsername = By.xpath("//input[@id='email']");
     private final By txtPassword = By.xpath("//input[@id='password']");
     private final By txtConfirmPass = By.xpath("//input[@id='confirmPassword']");

@@ -16,7 +16,7 @@ public class Utilities {
     }
     public static void scrollToElementInFireFox() {
         JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
-        js.executeScript("window.scrollBy(0,250)", "");
+        js.executeScript("window.scrollBy(0,800)", "");
     }
     public static String getProjectPath(){
         return "src/main/resources";

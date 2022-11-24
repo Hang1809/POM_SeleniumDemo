@@ -28,8 +28,10 @@ public class TC05_LoginWithWrongPasswordSeveralTimes extends BaseTest {
             loginPage.fillInvalidPassword(invalidPassService.getInvalidPassById(i).getInvalidPass());
             System.out.println(invalidPassService.getInvalidPassById(i).getInvalidPass());
             loginPage.clickBtnLogin();
-            String actualMsg= loginPage.getLblLoginErrorMsgTxt();
-            Assert.assertEquals(actualMsg, "Invalid username or password. Please try again.", "Error message is not displayed correctly");
         }
+        String actualMsg= loginPage.getLblLoginErrorMsgTxt();
+        String expectedMsg = "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.";
+
+        Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed correctly");
     }
 }
