@@ -16,7 +16,7 @@ public class TC05_LoginWithWrongPasswordSeveralTimes extends BaseTest {
     InvalidPassService invalidPassService = new InvalidPassService();
 
     @Test
-    public void TC05(){
+    public void TC05() {
         Log.info("System shows message when user enters wrong password several times");
         Log.info("Step1: Navigate to QA Railway Website");
         Log.info("Step2: Click on 'Login' tab");
@@ -24,12 +24,12 @@ public class TC05_LoginWithWrongPasswordSeveralTimes extends BaseTest {
         Log.info("Step3: Enter valid information into 'Username' textbox except 'Password' textbox.");
 
         loginPage.fillUsername(Constant.USERNAME);
-        for (int i =1; i<=4; i++){
+        for (int i = 1; i <= 4; i++) {
             loginPage.fillInvalidPassword(invalidPassService.getInvalidPassById(i).getInvalidPass());
             System.out.println(invalidPassService.getInvalidPassById(i).getInvalidPass());
             loginPage.clickBtnLogin();
         }
-        String actualMsg= loginPage.getLblLoginErrorMsgTxt();
+        String actualMsg = loginPage.getLblLoginErrorMsgTxt();
         String expectedMsg = "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.";
 
         Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed correctly");

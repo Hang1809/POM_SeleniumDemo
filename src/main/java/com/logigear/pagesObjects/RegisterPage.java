@@ -9,15 +9,15 @@ import org.openqa.selenium.WebElement;
 
 public class RegisterPage extends GeneralPage {
 
-    public static String REGISTER_USERNAME = "hang"+(int)(Math.random()*1000)+"@gmail.com";
+    public static String REGISTER_USERNAME = "hang" + (int) (Math.random() * 1000) + "@gmail.com";
     public static String REGISTERED_ACCOUNT_PATH = "data/registeredAccount.json";
-    public static String NON_REGISTER_USERNAME = "abc"+(int)(Math.random()*10)+"@co.vn";
+    public static String NON_REGISTER_USERNAME = "abc" + (int) (Math.random() * 10) + "@co.vn";
 
     //Locators
-    private final By txtUsername = By.xpath("//input[@id='email']");
-    private final By txtPassword = By.xpath("//input[@id='password']");
-    private final By txtConfirmPass = By.xpath("//input[@id='confirmPassword']");
-    private final By txtPID = By.xpath("//input[@id='pid']");
+    private final By txtUsername = By.id("email");
+    private final By txtPassword = By.id("password");
+    private final By txtConfirmPass = By.id("confirmPassword");
+    private final By txtPID = By.id("pid");
     private final By btnRegister = By.xpath("//input[@type='submit' and @value='Register']");
     private final By successRegisterMsg = By.xpath("//div[@id='content']/p[contains(text(),'here')]");
     private final By lblRegisterErrorMsg = By.xpath("//p[@class='message error']");
@@ -56,17 +56,6 @@ public class RegisterPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(successRegisterMsg);
     }
 
-    public void register(String username, String password, String confirmPassword, String pID) {
-        getTxtUsername().sendKeys(username);
-        getTxtPassword().sendKeys(password);
-        getTxtConfirmPass().sendKeys(confirmPassword);
-        getTxtPID().sendKeys(pID);
-        Utilities.scrollToElementInFireFox();
-        Log.info("Click on 'Register' button");
-        getBtnRegister().click();
-
-    }
-
     public String getSuccessRegisterMsgTxt() {
         return this.getSuccessRegisterMsg().getText();
     }
@@ -77,5 +66,16 @@ public class RegisterPage extends GeneralPage {
 
     public String getLblInvalidErrorMsgTxt() {
         return this.getLblInvalidErrorMsg().getText();
+    }
+
+    public void register(String username, String password, String confirmPassword, String pID) {
+        getTxtUsername().sendKeys(username);
+        getTxtPassword().sendKeys(password);
+        getTxtConfirmPass().sendKeys(confirmPassword);
+        getTxtPID().sendKeys(pID);
+        Utilities.scrollToElementInFireFox();
+        Log.info("Click on 'Register' button");
+        getBtnRegister().click();
+
     }
 }

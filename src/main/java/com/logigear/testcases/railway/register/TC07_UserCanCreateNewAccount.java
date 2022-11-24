@@ -16,7 +16,7 @@ public class TC07_UserCanCreateNewAccount extends BaseTest {
     RegisterPage registerPage = new RegisterPage();
 
     @Test
-    public void TC07(){
+    public void TC07() {
         JSONArray registeredAccountList = JSONUtils.getJSONList(RegisterPage.REGISTERED_ACCOUNT_PATH);
         String username = RegisterPage.REGISTER_USERNAME;
         String password = Constant.PASSWORD;
@@ -28,10 +28,10 @@ public class TC07_UserCanCreateNewAccount extends BaseTest {
         registerPage.register(username, password, Constant.PASSWORD, Constant.PID);
         //WRITE NEW REGISTERED_ACCOUNT INTO JSON FILE
         JSONObject registerAccount = new JSONObject();
-        registerAccount.put("Username",username);
-        registerAccount.put("Password",password);
+        registerAccount.put("Username", username);
+        registerAccount.put("Password", password);
         registeredAccountList.add(registerAccount);
-        JSONUtils.setJSONList(RegisterPage.REGISTERED_ACCOUNT_PATH,registeredAccountList);
+        JSONUtils.setJSONList(RegisterPage.REGISTERED_ACCOUNT_PATH, registeredAccountList);
 
         Assert.assertEquals(registerPage.getSuccessRegisterMsgTxt(), "You're here", "Success message is not displayed as expected");
 

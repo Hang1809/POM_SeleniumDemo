@@ -16,7 +16,7 @@ public class TC14_UserCanBook1Ticket extends BaseTest {
     BookTicketPage bookTicketPage = new BookTicketPage();
 
     @Test
-    public void TC14(){
+    public void TC14() {
         Log.info("TC14_User can book 1 ticket at a time");
         Log.info("Step1: Navigate to QA Railway Website");
         Log.info("Step2: Login with a valid account ");
@@ -29,8 +29,8 @@ public class TC14_UserCanBook1Ticket extends BaseTest {
         Log.info("Step5: Select 'Sài Gòn' for 'Depart from' and 'Nha Trang' for 'Arrive at'. ");
         Log.info("Step6: Select 'Soft bed with air conditioner' for 'Seat type'");
         Log.info("Step7: Select '1' for 'Ticket amount'");
-        bookTicketPage.bookTicket(BookTicketPage.DEPART_DATE,"Sài Gòn","Nha Trang","1","Soft bed with air conditioner");
-        List<String> listInfoBooking = bookTicketPage. getInfoBooking();
+        bookTicketPage.bookTicket(BookTicketPage.DEPART_DATE, "Sài Gòn", "Nha Trang", "1", "Soft bed with air conditioner");
+        List<String> listInfoBooking = bookTicketPage.getInfoBooking();
         Log.info("Step8: Click on 'Book ticket' button");
         bookTicketPage.clickBtnBookTicket();
         List<String> listInfoTicket = bookTicketPage.getDataTicket();
@@ -39,10 +39,9 @@ public class TC14_UserCanBook1Ticket extends BaseTest {
         String expectedMsg = "Ticket Booked Successfully!";
 
         Assert.assertEquals(actualMsg, expectedMsg, "Success message is not displayed as expected");
-        for(int i = 0;i<listInfoBooking.size();i++){
-            Assert.assertEquals(listInfoBooking.get(i),listInfoTicket.get(i),"Ticket information display incorrectly ");
+        for (int i = 0; i < listInfoBooking.size(); i++) {
+            Assert.assertEquals(listInfoBooking.get(i), listInfoTicket.get(i), "Ticket information display incorrectly ");
         }
     }
 
 }
-

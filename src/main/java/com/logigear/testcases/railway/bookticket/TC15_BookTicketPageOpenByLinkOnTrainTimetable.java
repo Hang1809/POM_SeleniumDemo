@@ -33,11 +33,9 @@ public class TC15_BookTicketPageOpenByLinkOnTrainTimetable extends BaseTest {
 
         String actualDptStation = dptStation;
         String actualArrStation = arrStation;
-        String expectedDptStation = "Huế";
-        String expectedArrStation = "Sài Gòn";
 
-        Assert.assertEquals(actualDptStation,expectedDptStation,"Depart Station is incorrectly");
-        Assert.assertEquals(actualArrStation,expectedArrStation,"Arrive Station is incorrectly");
+        Assert.assertEquals(actualDptStation,"Huế","Depart Station is incorrectly");
+        Assert.assertEquals(actualArrStation,"Sài Gòn","Arrive Station is incorrectly");
 
     }
 }

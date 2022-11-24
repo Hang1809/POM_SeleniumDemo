@@ -15,7 +15,7 @@ public class TC01_LoginWithValidUsernameAndPassword extends BaseTest {
     LoginPage loginPage = new LoginPage();
 
     @Test
-    public void TC01(){
+    public void TC01() {
         Log.info("TC01- User can log into Railway with valid username and password");
         Log.info("Step1: Navigate to QA Railway Website");
         Log.info("Step2: Click on 'Login' tab");
@@ -25,9 +25,6 @@ public class TC01_LoginWithValidUsernameAndPassword extends BaseTest {
         Log.info("Step4: Click on 'Login' button");
         loginPage.clickBtnLogin();
 
-        String actualMsg = loginPage.getWelcomeMessage();
-        String expectedMsg = "Welcome " + Constant.USERNAME;
-
-        Assert.assertEquals(actualMsg, expectedMsg, "Welcome message is not displayed as expected");
+        Assert.assertEquals(loginPage.getWelcomeMessage(), "Welcome " + Constant.USERNAME, "Welcome message is not displayed as expected");
     }
 }

@@ -14,18 +14,18 @@ public class TC10_RegisterWithMismatchPasswordAndConfirmPassword extends BaseTes
     RegisterPage registerPage = new RegisterPage();
 
     @Test
-    public void TC10(){
+    public void TC10() {
         Log.info("User can't create account with 'Confirm password' is not the same with 'Password' ");
         Log.info("Step1. Navigate to QA Railway Website");
         Log.info("Step2. Click on 'Register' tab");
         homePage.goToRegisterPage();
         Log.info("Step3. Enter valid information into all fields except 'Confirm password' is not the same with 'Password'");
-        registerPage.register(RegisterPage.REGISTER_USERNAME,Constant.PASSWORD,"abc",Constant.PID);
+        registerPage.register(RegisterPage.REGISTER_USERNAME, Constant.PASSWORD, "abc", Constant.PID);
 
         String actualMsg = registerPage.getLblInvalidErrorMsgTxt();
         String expectedMsg = "The two passwords do not match";
 
-        Assert.assertEquals(actualMsg,expectedMsg,"Error message is not displayed as expected");
+        Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
     }
 
 }

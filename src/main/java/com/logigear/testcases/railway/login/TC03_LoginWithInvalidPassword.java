@@ -16,7 +16,7 @@ public class TC03_LoginWithInvalidPassword extends BaseTest {
     InvalidPassService invalidPassService = new InvalidPassService();
 
     @Test
-    public void TC03(){
+    public void TC03() {
         Log.info("TC03 - User cannot log into Railway with invalid password ");
         Log.info("Step1: Navigate to QA Railway Website");
         Log.info("Step2: Click on 'Login' tab");
@@ -24,12 +24,13 @@ public class TC03_LoginWithInvalidPassword extends BaseTest {
         Log.info("Step3: Enter valid Email and invalid Password ");
 
         loginPage.fillUsername(Constant.USERNAME);
-        for (int i =1; i<=4; i++){
+        for (int i = 1; i <= 4; i++) {
             loginPage.fillInvalidPassword(invalidPassService.getInvalidPassById(i).getInvalidPass());
             System.out.println(invalidPassService.getInvalidPassById(i).getInvalidPass());
             loginPage.clickBtnLogin();
             String actualMsg = loginPage.getLblLoginErrorMsgTxt();
             Assert.assertEquals(actualMsg, "Invalid username or password. Please try again.", "Error message is not displayed correctly");
-        };
+        }
+        ;
     }
 }

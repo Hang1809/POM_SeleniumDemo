@@ -16,22 +16,22 @@ public class TC09_UserCanChangePassword extends BaseTest {
     ChangePasswordPage changePasswordPage = new ChangePasswordPage();
 
     @Test
-    public void TC09(){
-        String newPass =Constant.PASSWORD + (int)(Math.random()*10);
+    public void TC09() {
+        String newPass = Constant.PASSWORD + (int) (Math.random() * 10);
         System.out.println("User can change password");
         Log.info("Step1: Navigate to QA Railway Website");
         homePage.goToLoginPage();
         Log.info("Step2: Login with valid account");
-        loginPage.fillDataLogin(PropertiesFile.getPropValue("username"),PropertiesFile.getPropValue("password"));
+        loginPage.fillDataLogin(PropertiesFile.getPropValue("username"), PropertiesFile.getPropValue("password"));
         loginPage.clickBtnLogin();
         Log.info("Step3: Click on 'Change Password' tab");
         loginPage.goToChangePasswordPage();
         Log.info("Step4: Enter valid value into all fields.");
-        changePasswordPage.changePassword(PropertiesFile.getPropValue("password"),newPass,newPass);
-        PropertiesFile.setPropValue("password",newPass);
+        changePasswordPage.changePassword(PropertiesFile.getPropValue("password"), newPass, newPass);
+        PropertiesFile.setPropValue("password", newPass);
 
         String actualMsg = changePasswordPage.getLblSuccessChangPassMsg();
-        String expectedMsg ="Your password has been updated!" ;
+        String expectedMsg = "Your password has been updated!";
 
         Assert.assertEquals(actualMsg, expectedMsg, "Change password isn't successfully");
 

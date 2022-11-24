@@ -14,7 +14,7 @@ public class TC08_LoginWithNonRegisterAccount extends BaseTest {
     LoginPage loginPage = new LoginPage();
 
     @Test
-    public void TC08(){
+    public void TC08() {
         Log.info("TC08_ User can't login with an account hasn't been registered");
         Log.info("Step1. Navigate to QA Railway Website");
         Log.info("Step2. Click on 'Login' tab");

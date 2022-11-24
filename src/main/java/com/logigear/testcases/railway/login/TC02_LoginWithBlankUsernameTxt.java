@@ -16,7 +16,7 @@ public class TC02_LoginWithBlankUsernameTxt extends BaseTest {
 
 
     @Test
-    public void TC02(){
+    public void TC02() {
         Log.info("TC02 - User can't login with blank 'Username' textbox");
         Log.info("Step1: Navigate to QA Railway Website");
         Log.info("Step2: Click on 'Login' tab");

@@ -49,6 +49,11 @@
                     <include name="TC06"/>
                 </methods>
             </class>
+            <class name="com.logigear.testcases.railway.login.TC08_LoginWithNonRegisterAccount">
+                <methods>
+                    <include name="TC08"/>
+                </methods>
+            </class>
             <class name="com.logigear.testcases.railway.myticket.TC16_UserCanCancelATicket">
                 <methods>
                     <include name="TC16"/>
