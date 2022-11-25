@@ -3,6 +3,7 @@ package com.logigear.dataObjects.invalidPass;
 public class InvalidPass {
     private int id;
     private String invalidPass;
+
     public int getId() {return id;}
 
     public String getInvalidPass() {
