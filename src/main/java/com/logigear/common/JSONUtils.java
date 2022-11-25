@@ -30,4 +30,7 @@ public class JSONUtils {
             e.printStackTrace();
         }
     }
+    public static JSONObject getJSONObjectByIndex(JSONArray list , int index ) {
+        return (JSONObject)(list.get(index));
+    }
 }

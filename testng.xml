@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="E:/PageObjectDemo">
+        <classes>
+            <class name="com.logigear.finaltestcase.FTTC01_ManageTicketDisplaysRemainingBookedTicket">
+                <methods>
+                    <include name="FTTC01"/>
+                </methods>
+            </class>
+            <class name="com.logigear.finaltestcase.FTTC02_UserCanCancelAllTicket">
+                <methods>
+                    <include name="FTTC02"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
