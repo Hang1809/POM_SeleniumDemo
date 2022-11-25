@@ -1,5 +1,8 @@
 package com.logigear.pagesObjects;
 
-public class ChangePasswordPage extends GeneralPage {
+import com.logigear.common.Constant;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
+public class ChangePasswordPage extends GeneralPage {
 }
